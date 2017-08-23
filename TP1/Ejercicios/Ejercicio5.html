@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Template</title>
+	</head>
+  <body>
+	   <header>
+		     <canvas id="canvas" width="900" height="600"></canvas>
+		     <img src="https://img.elcomercio.pe/files/article_content_ec_fotos/uploads/2017/07/06/595e877b5c4e4.jpeg">
+	   <header>
+
+		 <script>
+				 <!-- JavaScript code -->
+				var ctx = document.getElementById("canvas").getContext("2d");
+				var image1 = new Image();
+				image1.crossOrigin="Anonymous";
+				image1.src="https://img.elcomercio.pe/files/article_content_ec_fotos/uploads/2017/07/06/595e877b5c4e4.jpeg";
+				image1.onload = function(){
+						canvas.width = image1.width;
+						canvas.height = image1.height;
+						ctx.drawImage(image1,0,0);
+						var imageData = ctx.getImageData(0,0,image1.width,image1.height);
+						var maxWidth = imageData.width;
+						var maxHeight = imageData.height;
+						for(var x=0; x<maxWidth; x++){
+							for(var y=0; y<maxHeight; y++){
+									valor = (getRed(imageData,x,y)+getGreen(imageData,x,y)+getBlue(imageData,x,y))/3;
+								setRed(imageData,x,y,valor);
+								setGreen(imageData,x,y,valor);
+								setBlue(imageData,x,y,valor);
+							}
+						}
+						ctx.putImageData(imageData,0,0);
+			}
+		function getRed(imageData,x,y){
+			index = (x + y * imageData.width) * 4;
+			return imageData.data[index+0];
+		}
+		function setRed(imageData,x,y,valor){
+			index = (x + y * imageData.width) * 4;
+			imageData.data[index+0]=valor;
+		}
+		function getGreen(imageData,x,y){
+			index = (x + y * imageData.width) * 4;
+			return imageData.data[index+1];
+		}
+		function setGreen(imageData,x,y,valor){
+			index = (x + y * imageData.width) * 4;
+			imageData.data[index+1]=valor;
+		}
+		function getBlue(imageData,x,y){
+			index = (x + y * imageData.width) * 4;
+			return imageData.data[index+2];
+		}
+		function setBlue(imageData,x,y,valor){
+			index = (x + y * imageData.width) * 4;
+			imageData.data[index+2]=valor;
+		}
+		</script>
+	</body>
+</html>
