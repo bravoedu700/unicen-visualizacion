@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Interfaces de usuario e Interacción</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Mis estilos -->
+    <link href="custom.css" rel="stylesheet">
+</head>
+<body>
+
+<h1>Interfaces de usuario e Interacción</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="contenedor-imagen">
+                <div class="file-input-content">
+                    <input type="file" id="file-input"  />
+                </div>
+                <canvas id="myCanvas" width="700" height="400"></canvas>
+				 <a id="guardar" class="btn btn-danger" download="foto.jpg">Guardar</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-4">
+                    <a href="#" onclick="negative()"><img src="imagenes/negativo.png" width="100"/></a>
+                    <a href="#" onclick="sepia()"><img src="imagenes/sepia.png" width="100"/></a>
+                </div>
+                <div class="col-md-4">
+                    <a href="#" onclick="grey()"><img src="imagenes/gris.png" width="100"/></a>
+                    <a href="#" onclick="sobelB()"><img src="imagenes/blurbyn.png" alt="" width="100"></a>
+                </div>
+                <div class="col-md-4">
+                    <a href="#" onclick="sobelH()"><img src="imagenes/bordesh.png" width="100"></a>
+                    <a href="#" onclick="sobelV()"><img src="imagenes/bordesv.png" width="100"></a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                        <img src="imagenes/binarizacion.png" width="100">
+                </div>
+                <div class="col-md-8">
+                        <input id="bi1" type="range" min="0" max="255" step="1" value="128" onchange="binarization()" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="imagenes/desenfoque.png" width="100">
+                </div>
+                <div class="col-md-8">
+                    <input id="bl1" type="range" max="10" min="0" step="1" value="0" onchange="blurRange()" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="imagenes/brillo.png" width="100">
+                </div>
+                <div class="col-md-8">
+                    <input id="bg1" type="range" max="99" min="0" step="1" value="50" onchange="brighness()" />
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="container">
+    <h2>Alumno: Eduardo Bravo. Interfaces de usuario e Interacción 2017. Entrega Especial. Práctico 1</h2>
+</footer>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="custom.js"></script>
+</body>
+</html>

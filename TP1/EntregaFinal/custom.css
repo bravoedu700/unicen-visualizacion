@@ -1,0 +1,54 @@
+
+body{
+    background: radial-gradient(circle at 33% 100%, #fed373 4%, #f15245 30%, #d92e7f 62%, #9b36b7 85%, #515ecf)
+}
+
+h1{
+    font-size: 60px;
+    color:#ffffff;
+    text-align: center;
+    height:60px;
+}
+
+h2{
+    font-size: 20px;
+    color:#ffffff;
+    text-align: center;
+    height:60px;
+
+}
+
+/* canvas */
+.contenedor-imagen{
+    width: 700px;
+    height: 540px;
+}
+#myCanvas{
+    background-color: white;
+    display: none;
+
+}
+.file-input-content{
+    text-align: center;
+    height:540px;
+    width:700px;
+    background-color:rgba(255, 255, 255, 0.2);
+    padding: 185px 150px 185px 20px;
+    margin: 0px;
+
+}
+
+input[type=range] {
+    background-color:rgba(255, 255, 255, 0.2);
+    height: 100px;
+    border: 5px solid #ffffff;
+    margin: 5px;
+    margin-left: -30px;
+    width: 115%;
+}
+
+img {margin: 5px; border: 5px solid #ffffff}
+
+#guardar{
+display:none;
+}
