@@ -3,7 +3,7 @@
 	var canvas = null;
 	var context = null;
 	var imageData = null;
-    var imageDataOriginal = null;
+  var imageDataOriginal = null;
 
 	// google groups catedra upload
 	$(function() {
@@ -130,26 +130,26 @@
         for(var x=0; x<imageData.width; x++){
             for(var y=0; y<imageData.height; y++){
 				// around
-                cantR = 0;
-                cantG = 0;
-                cantB = 0;
+        cantR = 0;
+				cantG = 0;
+        cantB = 0;
 				sum = 0;
 				for(j=x-1;j<=x+1;j++) {
-                    for (k = y - 1; k <= y + 1; k++) {
-                    	if((j>0) && (k>0)) {
-                            cantR = cantR + getRed(imageData, j, k);
-                            cantG = cantG + getGreen(imageData, j, k);
-                            cantB = cantB + getBlue(imageData, j, k);
-                            sum++;
-                        }
+            for (k = y - 1; k <= y + 1; k++) {
+                if((j>0) && (k>0)) {
+                    cantR = cantR + getRed(imageData, j, k);
+                    cantG = cantG + getGreen(imageData, j, k);
+                    cantB = cantB + getBlue(imageData, j, k);
+                    sum++;
                     }
                 }
-                setRed(data,x,y,cantR/sum);
-                setGreen(data,x,y,cantG/sum);
-                setBlue(data,x,y,cantB/sum);
             }
+        setRed(data,x,y,cantR/sum);
+        setGreen(data,x,y,cantG/sum);
+        setBlue(data,x,y,cantB/sum);
         }
-        context.putImageData(data,0,0);
+      }
+      context.putImageData(data,0,0);
     }
 
 	function sobelH(){
@@ -208,27 +208,27 @@
 		var index = (x + y * imageData.width) * 4;
 		return imageData.data[index+0];
 	}
-	
+
 	function setRed(imageData,x,y,valor){
 		var index = (x + y * imageData.width) * 4;
 		imageData.data[index+0]=valor;
 	}
-	
+
 	function getGreen(imageData,x,y){
 		var index = (x + y * imageData.width) * 4;
 		return imageData.data[index+1];
 	}
-	
+
 	function setGreen(imageData,x,y,valor){
 		var index = (x + y * imageData.width) * 4;
 		imageData.data[index+1]=valor;
 	}
-	
+
 	function getBlue(imageData,x,y){
 		var index = (x + y * imageData.width) * 4;
 		return imageData.data[index+2];
 	}
-	
+
 	function setBlue(imageData,x,y,valor){
 		var index = (x + y * imageData.width) * 4;
 		imageData.data[index+2]=valor;
