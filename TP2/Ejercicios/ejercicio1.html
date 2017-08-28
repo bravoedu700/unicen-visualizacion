@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Template</title>
+
+		<canvas id="canvas" width="900" height="600" style="border:#000 solid 1px;" />
+
+  <a href="" onclick="changeBackground()"></a>
+
+
+
+
+	<script>
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext("2d");
+canvas.onmousedown = function(){
+  ctx.fillStyle = 'rgba(255,127,0,0.5)';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+};
+canvas.onmousemove = function(e){
+  ctx.fillStyle = randomizeColor();
+  bg =ctx.createRadialGradient(e.clientX,e.clientY,1,900,0,900);
+  bg.addColorStop(0,randomizeColor());
+  bg.addColorStop(1,randomizeColor());
+  ctx.fillStyle = bg;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.font = "50px Arial";
+  ctx.fillStyle = "black";
+  ctx.fillText("X:" + e.clientX + " Y: " + e.clientY ,e.clientX,e.clientY);
+}
+function randomizeColor() { //function name
+      var color = '#'; // hexadecimal starting symbol
+      var letters = ['000000','FF0000','00FF00','0000FF','FFFF00','00FFFF','FF00FF','C0C0C0']; //Set your colors here
+      color += letters[Math.floor(Math.random() * letters.length)];
+      return color;
+}
+canvas.addEventListener("keydown", changeOnKeyDown());
+function changeOnKeyDown(){
+  ctx.fillStyle = 'rgba(0,127,0,0.5)';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+}
+	</script>
+   </head>
+</html>
