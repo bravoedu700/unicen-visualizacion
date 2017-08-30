@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Template</title>
+
+		<canvas id="canvas" width="900" height="600" style="border:#000 solid 1px;" />
+
+  <a href="" onclick="changeBackground()"></a>
+
+
+	<script>
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext("2d");
+
+var circles = [];
+
+canvas.onclick = function(e){
+var c1 = new Circle(e.clientX,e.clientY, 100,'rgba(0,127,0,0.5)');
+c1.draw(ctx);
+c1.drawGrad(ctx);
+//c1.drawImage(ctx, "Ford-600x400.jpg","repeat");
+c1.drawLine(ctx,8);
+circles.push(c1);
+console.log(c1);
+
+}
+
+
+
+canvas.onmousemove = function(e){
+
+    for(var i = 0; i<circles.length; i++){
+      ctx.fillStyle = "white";
+      ctx.fillRect(0, 0, 220, 60);
+      ctx.font = "30px Arial";
+      ctx.fillStyle = "black";
+
+      if(circles[i].incircle(e.clientX,e.clientY))
+        ctx.fillText('esta' ,20,20);
+      else {
+        ctx.fillText('noesta' ,20,20);
+      }
+    }
+
+
+
+}
+
+	</script>
+  <script src="circulos.js"></script>
+</head>
+</html>

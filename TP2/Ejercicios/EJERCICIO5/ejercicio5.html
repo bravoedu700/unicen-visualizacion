@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Template</title>
+
+		<canvas id="canvas" width="900" height="600" style="border:#000 solid 1px;" />
+
+  <a href="" onclick="changeBackground()"></a>
+
+
+<script src="circulos.js"></script>
+
+<script>
+
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext("2d");
+var objetoSel = null;
+var objetoSelkey = null;
+var circles = [];
+
+var c1 = new Circle(200,130, 100,'rgba(0,127,0,0.5)');
+var c2 = new Circle(500,180, 70,'rgba(0,127,110,0.5)');
+var c3 = new Circle(400,80, 30,'rgba(0,127,78,0.5)');
+var c4 = new Circle(430,380, 20,'rgba(0,127,210,0.5)');
+
+circles.push(c1);
+circles.push(c2);
+circles.push(c3);
+circles.push(c4);
+
+//dibojo los circulos pre-cargados
+for(var i = 0; i<circles.length; i++){
+	circles[i].draw(ctx);
+}
+
+//seteo el objeto seleccionado
+canvas.onmousedown = function(e){
+    for(var i = 0; i<circles.length; i++){
+      if(circles[i].incircle(e.clientX,e.clientY)){
+				objetoSel = circles[i];
+			}
+    }
+}
+
+//muevo el objeto seleccionado
+canvas.onmousemove = function(e){
+	if(objetoSel!=null){
+		objetoSel.draw(ctx);
+		objetoSel.setX(e.clientX);
+	  objetoSel.setY(e.clientY);
+	}
+}
+
+//quito el objeto selecionado y redibujo el canvas con la posiciones definitiva
+canvas.onmouseup = function(e){
+    objetoSel=null;
+		ctx.fillStyle = "white";
+		ctx.fillRect(0, 0, 900, 600);
+		for(var i = 0; i<circles.length; i++){
+			circles[i].draw(ctx);
+		}
+}
+
+//selecciono el objeto que deseo mover con las teclas
+canvas.onclick = function(e){
+	for(var i = 0; i<circles.length; i++){
+		if(circles[i].incircle(e.clientX,e.clientY)){
+			objetoSelkey = circles[i];
+		}
+	}
+}
+
+//con la tecla precionada voy redibujando el objeto
+document.onkeydown = function(e){
+	//up = 38 down = 40 left = 37 right = 39
+	console.log(objetoSelkey);
+	//alert(e.keyCode);
+	if(objetoSelkey!=null){
+		var x = objetoSelkey.x;
+		var y = objetoSelkey.y;
+		if(e.keyCode == '37'){ x = x-5;}
+		if(e.keyCode == '38'){ y = y-5;}
+		if(e.keyCode == '39'){ x = x+5;}
+		if(e.keyCode == '40'){ y = y+5;}
+
+		objetoSelkey.setX(x);
+	  objetoSelkey.setY(y);
+		objetoSelkey.draw(ctx);
+
+		if(e.keyCode == '27'){ objetoSelkey=null; }
+	}
+}
+
+//cuando suelto la tecla seteo a null el objeto selecionado
+document.onkeyup = function(e){
+	ctx.fillStyle = "white";
+	ctx.fillRect(0, 0, 900, 600);
+	for(var i = 0; i<circles.length; i++){
+		circles[i].draw(ctx);
+	}
+}
+
+
+</script>
+
+</head>
+</html>
