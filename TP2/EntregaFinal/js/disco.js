@@ -1,12 +1,14 @@
 function Disco(p){
   this.p = p;
   this.espesor = 40;
+  this.color = this.randomizeColor();
+  this.ancho = p * 35 + 10;
 }
 
 Disco.prototype.draw = function(ctx, x, y) {
   ctx.beginPath();
-  ctx.fillStyle = this.randomizeColor();
-  ctx.fillRect( (x-(30*this.p/2)), y, (x+(30*this.p)), this.espesor);
+  ctx.fillStyle = this.color;
+  ctx.fillRect(x-(this.ancho/2),y,this.ancho,this.espesor);
   ctx.closePath();
 }
 

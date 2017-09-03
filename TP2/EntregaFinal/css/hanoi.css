@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Monoton|Orbitron');
+body{
+    background-image: url("../img/bg.jpg");
+    background-size:100% auto;
+}
+
+h1,h2,h3,h4{
+    color:#fff;
+    font-weight:100;
+    font-family:'Monoton', cursive;
+    line-height:1.8em;
+}
+
+#canvas{
+  box-shadow: 2px 2px 140px #0f0f0f;
+}
