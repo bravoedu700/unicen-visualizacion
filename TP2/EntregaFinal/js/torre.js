@@ -12,7 +12,7 @@ Torre.prototype.poner = function(disco){
   this.discos.push(disco);
 }
 
-Torre.prototype.aceptar = function(disco) {
+Torre.prototype.acepta = function(disco) {
   //siempre apilo de mayor a menor
   if(this.discos.length > 0){
     if(this.discos[this.discos.length-1].p > disco.p)
@@ -46,12 +46,21 @@ Torre.prototype.draw = function(ctx){
 }
 
 Torre.prototype.cantidadDiscos = function(){
-  return this.discos.leng;
+  return this.discos.length;
 }
 
-Torre.prototype.seleccionada = function(posX,posY){
-if((posX>this.x-this.w/2)&&(posX<this.x+this.w/2))
+Torre.prototype.seleccionada = function(posX){
+  console.log(posX);
+if ((posX > this.x-(this.w)) && (posX < this.x+(this.w)))
   return true;
 else
   return false;
+}
+
+Torre.prototype.altoTorre = function(){
+  let suma=0;
+  for(var i=0; i<this.discos.length;i++){
+    suma = suma + this.discos[i].espesor;
+  }
+  return suma;
 }

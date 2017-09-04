@@ -1,7 +1,7 @@
 function Hanoi(c){
-  this.torre1 = new Torre(1);
-  this.torre2 = new Torre(2);
-  this.torre3 = new Torre(3);
+  this.torre1 = new Torre(150);
+  this.torre2 = new Torre(450);
+  this.torre3 = new Torre(750);
   this.moves = 0;
   this.cantidadDiscos = c;
   for(let i=0 ; i<this.cantidadDiscos; i++){
@@ -10,16 +10,18 @@ function Hanoi(c){
   }
 }
 
-Hanoi.prototype.getTorreSel = function(x,y){
+Hanoi.prototype.getTorreSel = function(x){
 
-  if(this.torre1.seleccionada(x,r))
+  if(this.torre1.seleccionada(x))
     return this.torre1;
 
-  if(this.torre2.seleccionada(x,r))
+  else if(this.torre2.seleccionada(x))
     return this.torre2;
 
-  if(this.torre3.seleccionada(x,r))
+  else if(this.torre3.seleccionada(x))
     return this.torre3;
+
+  else return null;
 
 }
 

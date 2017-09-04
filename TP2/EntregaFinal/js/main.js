@@ -5,16 +5,17 @@ var discoSelect = null;
 var torreSaca = null;
 var torrePone = null;
 var best = 0;
-document.getElementById("moves").innerHTML = 0;
 
 function jugar(cant){
-  var juego = new Hanoi(cant);
+  juego = new Hanoi(cant);
   juego.draw(ctx);
+  document.getElementById("moves").innerHTML = 0;
 }
 
 canvas.onmousedown = function(e){
-  torreSaca=juego.getTorreSel(e.clientX,e.clientY);
-  if(torreSaca.cantidadDiscos>0)
+  torreSaca=juego.getTorreSel(e.clientX);
+  console.log(torreSaca);
+  if(torreSaca.cantidadDiscos()>0)
     //seteo el disco seleccionado de la torre
     discoSelect=torreSaca.sacar();
   else
@@ -27,7 +28,9 @@ canvas.onmousedown = function(e){
 canvas.onmousemove = function(e){
   if(discoSelect!=null){
     juego.draw(ctx);
-	 discoSelect.draw(ctx,e.clientX,e.clientY);
+    resx=torreSaca.w/2;
+    sumy=torreSaca.altoTorre()+discoSelect.espesor;
+	  discoSelect.draw(ctx,e.clientX-resx,e.clientY-sumy);
   }
 }
 
@@ -35,7 +38,7 @@ canvas.onmousemove = function(e){
 canvas.onmouseup = function(e){
     torrePone=juego.getTorreSel(e.clientX,e.clientY);
     if(torrePone.acepta(discoSelect)){
-      terrePone.poner(discoSelect);
+      torrePone.poner(discoSelect);
       if(juego.win()){
           alert("Win");
           if(best > 0){
@@ -49,11 +52,11 @@ canvas.onmouseup = function(e){
     }
     else {
       alert('ERROR: Movimiento no permitido');
-      torre.Saca.poner(discoSelect);
+      torreSaca.poner(discoSelect);
     }
 
     discoSelect=null;
     torrePone=null;
     torreSaca=null;
-
+    juego.draw(ctx);
 }
