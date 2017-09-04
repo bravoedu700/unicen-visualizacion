@@ -29,8 +29,7 @@ canvas.onmousemove = function(e){
   if(discoSelect!=null){
     juego.draw(ctx);
     resx=torreSaca.w/2;
-    sumy=torreSaca.altoTorre()+discoSelect.espesor;
-	  discoSelect.draw(ctx,e.clientX-resx,e.clientY-sumy);
+	  discoSelect.draw(ctx,e.clientX-resx,e.clientY);
   }
 }
 
@@ -49,6 +48,9 @@ canvas.onmouseup = function(e){
                 document.getElementById("best").innerHTML = juego.getMove();
               }
         }
+          moves=document.getElementById("moves").innerHTML;
+          moves++;
+          document.getElementById("moves").innerHTML=moves;
     }
     else {
       alert('ERROR: Movimiento no permitido');

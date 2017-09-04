@@ -47,7 +47,7 @@ Torre.prototype.draw = function(ctx){
   for(var i=0; i<this.discos.length;i++){
     y=y-this.discos[i].espesor;
     this.discos[i].draw(ctx,this.x,y);
-
+    //this.discos[i].drawImage(ctx,this.x,y,"img/bg.jpg","repeat");
   }
 }
 
