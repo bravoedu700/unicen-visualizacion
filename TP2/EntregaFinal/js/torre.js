@@ -36,8 +36,14 @@ Torre.prototype.draw = function(ctx){
   ctx.fillRect(this.x-10,100,20,600);
   ctx.closePath();
 
+  ctx.beginPath();
+  ctx.fillStyle = "#825201";
+  l = (this.w/2)-20;
+  ctx.fillRect(this.x-l,580,260,20);
+  ctx.closePath();
+
   //se dibuja discos
-  let y = 600;
+  let y = 580;
   for(var i=0; i<this.discos.length;i++){
     y=y-this.discos[i].espesor;
     this.discos[i].draw(ctx,this.x,y);

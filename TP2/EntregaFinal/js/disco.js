@@ -26,8 +26,8 @@ Disco.prototype.drawImage = function(ctx,myImg,repeat) {
 }
 
 Disco.prototype.randomizeColor = function(){ //function name
-  var color = '#'; // hexadecimal starting symbol
-  var letters = ['000000','FF0000','00FF00','0000FF','FFFF00','00FFFF','FF00FF','C0C0C0']; //Set your colors here
+  var color = ''; // hexadecimal starting symbol
+  var letters = ['rgba(0,127,110,0.7)','rgba(0,127,110,0.7)','rgba(0,127,110,0.7)','rgba(0,127,110,0.7)','rgba(0,127,110,0.7)','rgba(0,127,110,0.7)','rgba(0,127,110,0.7)','rgba(0,127,110,0.7)']; //Set your colors here
   color += letters[Math.floor(Math.random() * letters.length)];
   return color;
 }
