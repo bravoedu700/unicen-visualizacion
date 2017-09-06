@@ -3,10 +3,37 @@ function Hanoi(c){
   this.torre2 = new Torre(450);
   this.torre3 = new Torre(750);
   this.moves = 0;
+  this.best = 0;
   this.cantidadDiscos = c;
   for(let i=0 ; i<this.cantidadDiscos; i++){
     let d = new Disco(this.cantidadDiscos-i);
     this.torre1.poner(d);
+  }
+}
+
+Hanoi.prototype.addMove = function(){
+  this.moves++;
+}
+
+Hanoi.prototype.getMoves = function(){
+  return this.moves;
+}
+
+Hanoi.prototype.getBest = function(){
+  return this.best;
+}
+
+Hanoi.prototype.breakBest = function(){
+  if(this.getMoves()<this.getBest()){
+    this.best = this.getMoves()
+    return true;
+  }
+  else {
+    if(this.getBest() == 0){
+      alert(this.getMoves());
+      this.best = this.getMoves();
+    }
+    return false;
   }
 }
 
@@ -52,13 +79,4 @@ Hanoi.prototype.win = function(){
     return true;
   else
     return false;
-}
-
-Hanoi.prototype.move = function(){
-  this.moves++;
-  document.getElementById("moves").innerHTML = this.moves;
-}
-
-Hanoi.prototype.getMove = function(){
-  return this.moves;
 }

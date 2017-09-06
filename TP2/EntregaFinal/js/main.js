@@ -10,11 +10,12 @@ function jugar(cant){
   juego = new Hanoi(cant);
   juego.draw(ctx);
   document.getElementById("moves").innerHTML = 0;
+  juego.best = document.getElementById("best").innerHTML;
 }
 
 canvas.onmousedown = function(e){
   torreSaca=juego.getTorreSel(e.clientX);
-  console.log(torreSaca);
+  //console.log(torreSaca);
   if(torreSaca.cantidadDiscos()>0)
     //seteo el disco seleccionado de la torre
     discoSelect=torreSaca.sacar();
@@ -38,19 +39,18 @@ canvas.onmouseup = function(e){
     torrePone=juego.getTorreSel(e.clientX,e.clientY);
     if(torrePone.acepta(discoSelect)){
       torrePone.poner(discoSelect);
+      juego.addMove();
+      console.log(juego);
+      document.getElementById("moves").innerHTML = juego.getMoves();
       if(juego.win()){
-          alert("Win");
-          if(best > 0){
-            if(juego.getMove() < best)
-              document.getElementById("best").innerHTML = juego.getMove();
+            if(juego.breakBest()==1){
+              alert("Felicitaciones!!!, rompiste tu Record!!!!");
             }
-          else {
-                document.getElementById("best").innerHTML = juego.getMove();
-              }
-        }
-          moves=document.getElementById("moves").innerHTML;
-          moves++;
-          document.getElementById("moves").innerHTML=moves;
+            else {
+              alert("Has Gando!!!, Pero puedes Mejorar");
+            }
+        document.getElementById("best").innerHTML = juego.getBest();
+      }
     }
     else {
       alert('ERROR: Movimiento no permitido');
