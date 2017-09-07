@@ -30,7 +30,6 @@ Hanoi.prototype.breakBest = function(){
   }
   else {
     if(this.getBest() == 0){
-      alert(this.getMoves());
       this.best = this.getMoves();
     }
     return false;

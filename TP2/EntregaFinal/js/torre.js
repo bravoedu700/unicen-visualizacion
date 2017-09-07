@@ -56,7 +56,7 @@ Torre.prototype.cantidadDiscos = function(){
 }
 
 Torre.prototype.seleccionada = function(posX){
-  console.log(posX);
+  //console.log(posX);
 if ((posX > this.x-(this.w)) && (posX < this.x+(this.w)))
   return true;
 else
