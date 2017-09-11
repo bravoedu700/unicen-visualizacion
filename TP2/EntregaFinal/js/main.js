@@ -81,5 +81,6 @@ canvas.onmouseup = function(e){
   discoSelect=null;
   torrePone=null;
   torreSaca=null;
+  path=null;
   juego.draw(ctx);
 }
