@@ -11,6 +11,18 @@ function Hanoi(c){
   }
 }
 
+Hanoi.prototype.verMsj = function(msj, clase){
+  document.getElementById("msj").innerHTML = msj;
+  document.getElementById("msj").classList.add(clase);
+  document.getElementById("msj").classList.add(clase);
+}
+
+Hanoi.prototype.ocultarMsj = function(){
+  document.getElementById("msj").innerHTML = '';
+  document.getElementById("msj").classList.remove('alert-danger');
+  document.getElementById("msj").classList.remove('alert-success');
+}
+
 Hanoi.prototype.addMove = function(){
   this.moves++;
 }

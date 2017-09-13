@@ -3,7 +3,6 @@ body{
   background: url('http://imagenesgratis.com.es/wp-content/uploads/2015/08/Free-Beach-Wallpaper-for-Iphone-2-For-Desktop-Background.jpg');
 }
 
-
 h1,h2,h3,h4{
     color:#000;
     font-weight:100;
@@ -20,3 +19,5 @@ h1,h2,h3,h4{
 }
 
 .container{ margin-left: 0px;}
+
+.alert{ margin-top: 20px;}

@@ -9,12 +9,14 @@ var best = 0;
 var isFirefox = typeof InstallTrigger !== 'undefined';
 var isChrome = !!window.chrome && !!window.chrome.webstore;
 var path = null;
+var oldcolor = null;
 
 function jugar(cant){
   juego = new Hanoi(cant);
   juego.draw(ctx);
   document.getElementById("moves").innerHTML = 0;
   juego.best = document.getElementById("best").innerHTML;
+  juego.ocultarMsj();
 }
 
 canvas.onmousedown = function(e){
@@ -32,7 +34,7 @@ canvas.onmousedown = function(e){
     discoSelect=torreSaca.sacar();
   else
     //envio msj de ERROR: ficha mas seleccionada
-    alert('ERROR: Ficha mal seleccionada');
+    juego.verMsj('ERROR: Ficha mal seleccionada','alert-danger');
 }
 
 
@@ -50,16 +52,18 @@ document.onmouseup = function(e){
 
 
    if( ((path!=e.explicitOriginalTarget) && (path!=null) && (isFirefox)) || ((path!=e.path[0])&&(path!=null)&& (isChrome)) ){
-
-    alert('ERROR: Soltaste la ficha fuera del area de juego!!!');
-    //agrego un movimiento
-    juego.addMove();
-    document.getElementById("moves").innerHTML = juego.getMoves();
-    torreSaca.poner(discoSelect);
-    discoSelect=null;
-    torrePone=null;
-    torreSaca=null;
-    juego.draw(ctx);
+     if(discoSelect!=null){
+      //alert('ERROR: Soltaste la ficha fuera del area de juego!!!');
+      juego.verMsj('ERROR: Soltaste la ficha fuera del area de juego!!!','alert-danger');
+      //agrego un movimiento
+      juego.addMove();
+      document.getElementById("moves").innerHTML = juego.getMoves();
+      torreSaca.poner(discoSelect);
+      discoSelect=null;
+      torrePone=null;
+      torreSaca=null;
+      juego.draw(ctx);
+    }
   }
 }
 //quito el objeto selecionado y redibujo el canvas con la posiciones definitiva
@@ -76,17 +80,18 @@ canvas.onmouseup = function(e){
        if(juego.win()){
          //pregunto si rompio el record
          if(juego.breakBest()==1){
-           alert("Felicitaciones!!!, rompiste tu Record!!!!");
+           juego.verMsj("Felicitaciones!!!, rompiste tu Record!!!!",'alert-success');
            }
          else{
-           alert("Has Gando!!!, Pero puedes Mejorar");
+           juego.verMsj("Has Gando!!!, Pero puedes Mejorar",'alert-success');
+
          }
          document.getElementById("best").innerHTML = juego.getBest();
        }
      }
      else{
        //la ficha no fue aceptada por la torre xq viola las reglas del juego
-       alert('ERROR: Movimiento no permitido');
+       juego.verMsj('ERROR: Movimiento no permitido','alert-danger');
        //actualizo la cantidad de movimientos y actualizo el frontend
        juego.addMove();
        document.getElementById("moves").innerHTML = juego.getMoves();
@@ -94,7 +99,7 @@ canvas.onmouseup = function(e){
      }
   }
   else{
-     alert('ERROR: No soltaste la ficha en la torre!!!');
+     juego.verMsj('ERROR: No soltaste la ficha en la torre!!!','alert-danger');
      //actualizo la cantidad de movimientos y actualizo el frontend
      juego.addMove();
      document.getElementById("moves").innerHTML = juego.getMoves();

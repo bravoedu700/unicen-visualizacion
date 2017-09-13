@@ -38,5 +38,10 @@ Disco.prototype.randomizeColor = function(){ //function name
   var color = ''; // hexadecimal starting symbol
   var letters = ['rgba(0,127,110,0.9)','rgba(120,222,110,0.9)','rgba(0,127,110,0.9)','rgba(123,127,10,0.9)','rgba(0,127,200,0.9)','rgba(215,40,40,0.8)','rgba(102,44,207,0.9)','rgba(102, 239, 56,0.9)']; //Set your colors here
   color += letters[Math.floor(Math.random() * letters.length)];
-  return color;
+  if(color!=oldcolor){
+    oldcolor=color;
+    return color;
+  }
+  else
+    return this.randomizeColor();
 }
