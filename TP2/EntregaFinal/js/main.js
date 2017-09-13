@@ -6,6 +6,8 @@ var torreSaca = null;
 var torrePone = null;
 var best = 0;
 
+var isFirefox = typeof InstallTrigger !== 'undefined';
+var isChrome = !!window.chrome && !!window.chrome.webstore;
 var path = null;
 
 function jugar(cant){
@@ -17,7 +19,10 @@ function jugar(cant){
 
 canvas.onmousedown = function(e){
 
-  path = e.path[0];
+   if(isChrome)
+      path = e.path[0];
+   if(isFirefox)
+      path = e.explicitOriginalTarget;
 
   //torreSaca=juego.getTorreSel(e.clientX);
   torreSaca=juego.getTorreSelFicha(e.clientX,e.clientY);
@@ -42,8 +47,10 @@ canvas.onmousemove = function(e){
 
 //creo una funcion que cheque si la ficha se suelta dentro del canvas
 document.onmouseup = function(e){
-   console.log(e);
-  if((path!=e.path[0])&&(path!=null)){
+
+
+   if( ((path!=e.explicitOriginalTarget) && (path!=null) && (isFirefox)) || ((path!=e.path[0])&&(path!=null)&& (isChrome)) ){
+
     alert('ERROR: Soltaste la ficha fuera del area de juego!!!');
     //agrego un movimiento
     juego.addMove();
