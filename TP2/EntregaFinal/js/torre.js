@@ -29,21 +29,21 @@ Torre.prototype.draw = function(ctx){
   //dibujar torre
   ctx.strockeStyle="#000000";
   ctx.lineWidth=1;
-  ctx.strokeRect(this.x - (this.w/2),0,this.x + (this.w/2),600);
+  ctx.strokeRect(this.x - (this.w/2),0,this.x + (this.w/2),500);
 
   ctx.beginPath();
   ctx.fillStyle = "#825201";;
-  ctx.fillRect(this.x-10,100,20,600);
+  ctx.fillRect(this.x-10,100,20,500);
   ctx.closePath();
 
   ctx.beginPath();
   ctx.fillStyle = "#825201";
   l = (this.w/2)-20;
-  ctx.fillRect(this.x-l,580,260,20);
+  ctx.fillRect(this.x-l,480,260,20);
   ctx.closePath();
 
   //se dibuja discos
-  let y = 580;
+  var y = 480;
   for(var i=0; i<this.discos.length;i++){
     y=y-this.discos[i].espesor;
     this.discos[i].draw(ctx,this.x,y);
@@ -57,7 +57,12 @@ Torre.prototype.cantidadDiscos = function(){
 
 Torre.prototype.seleccionada = function(posX){
   //console.log(posX);
-if ((posX > this.x-(this.w)) && (posX < this.x+(this.w)))
+minx=this.x+4;
+maxx=this.x+27;
+
+//alert('min x:' + minx +' clic:' + posX + 'maxx:' + maxx);
+
+if ((posX >= minx) && (posX <= maxx))
   return true;
 else
   return false;
@@ -66,11 +71,12 @@ else
 Torre.prototype.getTorreFichaSel = function(posX,posY){
   //console.log(posX);
   if(this.cantidadDiscos()>0){
-    let minY=520 - this.altoTorre();
-    let maxY=520;
+    let minY=574 - this.altoTorre();
+    let maxY=594;
     let mitaAnchoTope=this.getAnchoTope()/2;
-    let minX=150 + this.x-mitaAnchoTope;
-    let maxX=150 + this.x+mitaAnchoTope;
+    let minX= 15 + this.x-mitaAnchoTope;
+    let maxX= 15 + this.x+mitaAnchoTope;
+    //posY = posY+94;
 
     //alert('min y:' + minY +' clic:' + posY + 'maxy:' + maxY);
     //alert('min x:' + minX +' clic:' + posX + 'maxx:' + maxX);
