@@ -51,6 +51,21 @@ Hanoi.prototype.getTorreSel = function(x){
 
 }
 
+Hanoi.prototype.getTorreSelFicha = function(x,y){
+
+  if(this.torre1.getTorreFichaSel(x,y))
+    return this.torre1;
+
+  else if(this.torre2.getTorreFichaSel(x,y))
+    return this.torre2;
+
+  else if(this.torre3.getTorreFichaSel(x,y))
+    return this.torre3;
+
+  else return null;
+
+}
+
 Hanoi.prototype.draw = function(ctx){
   //dibujar bacgroun del juego
   ctx.clearRect(0,0,canvas.width,canvas.height);

@@ -63,6 +63,32 @@ else
   return false;
 }
 
+Torre.prototype.getTorreFichaSel = function(posX,posY){
+  //console.log(posX);
+  if(this.cantidadDiscos()>0){
+    let minY=520 - this.altoTorre();
+    let maxY=520;
+    let mitaAnchoTope=this.getAnchoTope()/2;
+    let minX=150 + this.x-mitaAnchoTope;
+    let maxX=150 + this.x+mitaAnchoTope;
+
+    //alert('min y:' + minY +' clic:' + posY + 'maxy:' + maxY);
+    //alert('min x:' + minX +' clic:' + posX + 'maxx:' + maxX);
+
+    if ((posX >= minX) && (posX <= maxX) && (posY >= minY) && (posY <= maxY))
+      return true;
+    else
+      return false;
+  }
+  else {
+    return false;
+  }
+}
+
+Torre.prototype.getAnchoTope = function(){
+  return this.discos[this.cantidadDiscos()-1].ancho;
+}
+
 Torre.prototype.altoTorre = function(){
   let suma=0;
   for(var i=0; i<this.discos.length;i++){

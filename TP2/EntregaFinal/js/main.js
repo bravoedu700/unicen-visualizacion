@@ -19,14 +19,15 @@ canvas.onmousedown = function(e){
 
   path = e.path[0];
 
-  torreSaca=juego.getTorreSel(e.clientX);
+  //torreSaca=juego.getTorreSel(e.clientX);
+  torreSaca=juego.getTorreSelFicha(e.clientX,e.clientY);
   //console.log(torreSaca);
-  if(torreSaca.cantidadDiscos()>0)
+  if(torreSaca != null)
     //seteo el disco seleccionado de la torre
     discoSelect=torreSaca.sacar();
   else
-    //envio msj de ERROR: torre seleccionada vacia
-    alert('ERROR: torre vacia');
+    //envio msj de ERROR: ficha mas seleccionada 
+    alert('ERROR: Ficha mal seleccionada');
 }
 
 
@@ -35,6 +36,7 @@ canvas.onmousemove = function(e){
   if(discoSelect!=null){
     juego.draw(ctx);
     resx=torreSaca.w/2;
+    let dy = e.clientY-discoSelect.getEspesor();
 	  discoSelect.draw(ctx,e.clientX-resx,e.clientY);
   }
 }
@@ -43,6 +45,9 @@ canvas.onmousemove = function(e){
 document.onmouseup = function(e){
   if((path!=e.path[0])&&(path!=null)){
     alert('ERROR: Soltaste la ficha fuera del area de juego!!!');
+    //agrego un movimiento
+    juego.addMove();
+    document.getElementById("moves").innerHTML = juego.getMoves();
     torreSaca.poner(discoSelect);
     discoSelect=null;
     torrePone=null;

@@ -5,6 +5,14 @@ function Disco(p){
   this.ancho = p * 22 + 10;
 }
 
+Disco.prototype.getAncho = function(){
+  return this.ancho;
+}
+
+Disco.prototype.getEspesor = function(){
+  return this.espesor;
+}
+
 Disco.prototype.draw = function(ctx, x, y) {
   ctx.beginPath();
   ctx.fillStyle = this.color;
