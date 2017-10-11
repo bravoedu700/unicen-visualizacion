@@ -1,0 +1,46 @@
+
+body{background-color: #EEE; font-family: verdana;}
+header{ width: 75%; margin: auto; background-color: #FFF; height: 125px}
+header h1{ font-size: 30px; color: #633432; float: left; width: 20%; height: 40px; margin-top: 40px;}
+
+main{ width: 75%; margin: auto; background-color: #FFF; height: 1400px;}
+main h2 { margin-top: 0px;}
+
+form{ width: 20%; float: left; margin: 50px;}
+.map{ width: 60%; float: left; margin: 20px;}
+.map img { width: 90%;}
+
+h2{ margin: 30px; float:left; width: 100%; height: 50px; }
+
+.contentWrapper section{ width: 100%; float: left; position: relative;}
+
+#section-video video { float: left; width: 60%;  border: 1px solid #EEE; height: 320px; margin: 10px 10px 10px 20px; z-index: 400;}
+
+.slider-text{ float: left;}
+.slider-text li {list-style: none;}
+.slider-text h3 { color: yellow;}
+.slider-text p { color: #CCC; }
+
+.logo{ background-color: #eee; float: left; height: 80px; width: 25%; margin: 0px; background-color: #FFF; z-index: 1000; position: relative;}
+.logo img{ height: 80px; width: auto; margin-left: 10px;}
+
+.top-navbar{ float:right; width: 100%; margin: 0px; height: 15px; border-bottom: 1px solid #EEE; height: 38px}
+.top-navbar li{ float: right; list-style: none; padding: 5px; margin: 5px;}
+.top-navbar a{ text-decoration: none; color: #000; }
+
+.main-navbar{ float:right; width: 40%; margin: 0px; height: 15px; margin-top: 45px}
+.main-navbar li{ float: right; list-style: none; padding: 5px; margin: 5px;}
+.main-navbar a{ text-decoration: none; color: #000; }
+
+.hamburger{ display: none;}
+
+#section-info ul li{ width: 30%; float: left; margin: 1%; list-style: none;}
+#section-info ul li div img { width: 100%}
+
+footer{ width: 75%; margin: auto; background-color: #356766; height: 100px; color: #FFF;}
+footer a{ text-decoration: none; color: #FFF;}
+footer li{ list-style: none; float: left; margin: 10px; padding: 10px}
+.footer-nav-left{ float: left; }
+.footer-nav-center{ float: left; }
+.footer-nav-right{ float: left; }
+.footer-copyright{ margin: 10px; padding: 10px;}
