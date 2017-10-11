@@ -14,7 +14,8 @@ h2{ margin: 30px; float:left; width: 100%; height: 50px; }
 
 .contentWrapper section{ width: 100%; float: left; position: relative;}
 
-#section-video video { float: left; width: 60%;  border: 1px solid #EEE; height: 320px; margin: 10px 10px 10px 20px; z-index: 400;}
+#section-video video { float: left; width: 60%;  border: 1px solid #EEE; height: 320px; margin: 10px 10px 10px 20px; z-index: 400; transition: width 2s;}
+#section-video video:hover{ width: 90%;}
 
 .slider-text{ float: left;}
 .slider-text li {list-style: none;}
