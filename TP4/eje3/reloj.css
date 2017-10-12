@@ -12,30 +12,30 @@
 }
 
 #hora{
-  width: 200px;
+  width: 180px;
   height: 10px;
   background-color: #000000;
   position: absolute;
   top: 265px;
   left: 290px;
-  animation: ROTAR 432s infinite linear;
+  animation: ROTAR 8640s infinite linear;
 
 }
 
 #minuto{
-  width: 280px;
+  width: 240px;
   height: 5px;
   background-color: #000000;
   position: absolute;
   top: 265px;
   left: 290px;
   transition: transform 1s;
-  animation: ROTAR 36s infinite linear;
+  animation: ROTAR 720s infinite linear;
 }
 
 #segundo{
   background-color: red;
-  width: 290px;
+  width: 260px;
   height: 2px;
 
   position: absolute;
