@@ -1,0 +1,22 @@
+
+@keyframes caminante {
+   from {
+      background-position: 60px;
+   }
+   to {
+      background-position: -2370px;
+   }
+}
+
+body{
+   background-color: red;
+}
+
+.caminante {
+   width: 280px;
+   height: 346px;
+   margin-left: 50px;
+   background-image: url("WalkingManSpriteSheet.png");
+   background-repeat: no-repeat;
+   animation: caminante .8s steps(8, end) infinite;
+}

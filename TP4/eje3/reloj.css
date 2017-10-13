@@ -4,6 +4,8 @@
   width: 550px;
   height: 550px;
   background-color: #ccc;
+  margin-left: 10px;
+  margin-top: 10px;
  }
 
 @keyframes ROTAR {
@@ -12,38 +14,58 @@
 }
 
 #hora{
-  width: 180px;
-  height: 10px;
-  background-color: #000000;
+  width: 275px;
   position: absolute;
-  top: 265px;
-  left: 290px;
+  top: 285px;
+  left: 315px;
+  transition: transform 1s;
   animation: ROTAR 8640s infinite linear;
-
+}
+#hora div{
+   width: 180px;
+   height: 10px;
+   background-color: #000000;
 }
 
 #minuto{
-  width: 240px;
-  height: 5px;
-  background-color: #000000;
+  width: 275px;
   position: absolute;
-  top: 265px;
-  left: 290px;
+  top: 285px;
+  left: 315px;
   transition: transform 1s;
   animation: ROTAR 720s infinite linear;
 }
+#minuto div{
+   width: 220px;
+   height: 5px;
+   background-color: #000000;
+}
 
 #segundo{
-  background-color: red;
-  width: 260px;
-  height: 2px;
-
+  width: 275px;
   position: absolute;
-  top: 265px;
-  left: 290px;
+  top: 285px;
+  left: 315px;
+  transition: transform 1s;
   animation: ROTAR 60s infinite;
   animation-timing-function: steps(60);
+}
 
+#segundo div{
+  background-color: red;
+  width: 240px;
+  height: 2px;
+}
+
+#centro{
+   width: 30px;
+   height: 30px;
+   background-color: red;
+   position: absolute;
+   top: 276px;
+   left: 300px;
+
+   border-radius:100%;
 }
 
 
@@ -58,6 +80,7 @@ numeros
   top: 265px;
   left: 275px;
   font-size: 40px;
+  margin-left: 10px;
 }
 
 .horas li:nth-child(1){
