@@ -6,3 +6,8 @@ function rotarLogo(g){
   document.getElementById("logo").style.transform = "translate("+ x +"px,"+ y +"px) rotate("+ g +"deg)";
   nuclic++;
 }
+
+
+function trancicion(){
+  
+}

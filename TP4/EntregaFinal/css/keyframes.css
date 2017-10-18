@@ -1,0 +1,32 @@
+@keyframes RUNNER{
+   from {background-position: 60px;}
+   to {background-position: -2370px;}
+}
+
+@keyframes RUNNER-STOP{
+   from {background-position: 60px;}
+   to {background-position: -2370px;}
+}
+
+@keyframes RUNNER-JUMPING{
+   from {background-position: 60px;}
+   to {background-position: -2370px;}
+}
+
+
+
+
+@keyframes ENEMY{
+   from {background-position: 60px;}
+   to {background-position: -2370px;}
+}
+
+@keyframes COIN{
+   from {background-position: 60px;}
+   to {background-position: -2370px;}
+}
+
+@keyframes BACKGROUND-GAME{
+   from {background-position: 60px;}
+   to {background-position: -2370px;}
+}
