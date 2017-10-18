@@ -26,7 +26,7 @@ margin:0;
 padding:0;
 width:100%;
 height:100%;
-animation: ARBOL-GAME 44s steps(8, end) infinite;
+/*animation: ARBOL-GAME 44s steps(8, end) infinite;*/
 }
 
 .arboles{
@@ -37,7 +37,7 @@ animation: ARBOL-GAME 44s steps(8, end) infinite;
    padding:0;
    width:100%;
    height:100%;
-   animation: ARBOL-GAME 19s steps(8, end) infinite;
+   /*animation: ARBOL-GAME 19s steps(8, end) infinite;*/
 }
 
 .piso{
@@ -48,17 +48,17 @@ animation: ARBOL-GAME 44s steps(8, end) infinite;
    padding:0;
    width:100%;
    height:100%;
-   animation: PISO-GAME .8s steps(8, end) infinite;
+   /*animation: PISO-GAME .8s steps(8, end) infinite;*/
 }
 
 #runner {
    width: 83px;
    height: 128px;
    margin-left: 150px;
-   margin-top: 432px;
-   background:transparent url("../image/personaje.png")100%;
+   margin-top: 408px;
+   background:transparent url("../image/reposo.png")80%;
    background-repeat: no-repeat;
-   animation: RUNNER .8s steps(8, end) infinite;
+
 }
 
 .runner-right{
