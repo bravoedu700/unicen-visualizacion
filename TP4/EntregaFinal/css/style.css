@@ -52,11 +52,11 @@ animation: ARBOL-GAME 44s steps(8, end) infinite;
 }
 
 #runner {
-   width: 43px;
+   width: 83px;
    height: 128px;
    margin-left: 150px;
-   margin-top: 410px;
-   background:transparent url("../image/personaje.png")50%;
+   margin-top: 432px;
+   background:transparent url("../image/personaje.png")100%;
    background-repeat: no-repeat;
    animation: RUNNER .8s steps(8, end) infinite;
 }
@@ -64,6 +64,7 @@ animation: ARBOL-GAME 44s steps(8, end) infinite;
 .runner-right{
    animation: RUNNER .8s steps(8, end) infinite;
 }
+
 .runner-left{
   transform: scaleX(-1);
    animation: RUNNER .8s steps(8, end) infinite;
