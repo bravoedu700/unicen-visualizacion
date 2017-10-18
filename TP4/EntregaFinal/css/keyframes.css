@@ -1,6 +1,6 @@
 @keyframes RUNNER{
-   from {background-position: 60px;}
-   to {background-position: -2370px;}
+   from {background-position: 13px;}
+   to {background-position: -976px;}
 }
 
 @keyframes RUNNER-STOP{
@@ -14,8 +14,6 @@
 }
 
 
-
-
 @keyframes ENEMY{
    from {background-position: 60px;}
    to {background-position: -2370px;}
@@ -26,7 +24,12 @@
    to {background-position: -2370px;}
 }
 
-@keyframes BACKGROUND-GAME{
+@keyframes PISO-GAME{
    from {background-position: 60px;}
-   to {background-position: -2370px;}
+   to {background-position: -1250px;}
+}
+
+@keyframes ARBOL-GAME{
+   from {background-position: 0px;}
+   to {background-position: 1250px;}
 }
