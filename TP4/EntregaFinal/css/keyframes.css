@@ -1,16 +1,6 @@
-@keyframes RUNNER{
-   from {background-position: 13px;}
-   to {background-position: -976px;}
-}
-
-@keyframes RUNNER-STOP{
-   from {background-position: 60px;}
-   to {background-position: -2370px;}
-}
-
-@keyframes RUNNER-JUMPING{
-   from {background-position: 60px;}
-   to {background-position: -2370px;}
+@keyframes RUNNER {
+   from {background-position: 20px;}
+   to {background-position: -738px;}
 }
 
 

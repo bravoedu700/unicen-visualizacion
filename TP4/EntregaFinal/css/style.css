@@ -51,14 +51,20 @@ animation: ARBOL-GAME 44s steps(8, end) infinite;
    animation: PISO-GAME .8s steps(8, end) infinite;
 }
 
-.runner{
-   width: 63px;
-   height: 150px;
+#runner {
+   width: 43px;
+   height: 128px;
    margin-left: 150px;
-   background:transparent url("../image/personaje.png") 100%;
-   background-size: cover;
+   margin-top: 410px;
+   background:transparent url("../image/personaje.png")50%;
    background-repeat: no-repeat;
    animation: RUNNER .8s steps(8, end) infinite;
-   margin-top: 390px;
-   position:absolute;
-   }
+}
+
+.runner-right{
+   animation: RUNNER .8s steps(8, end) infinite;
+}
+.runner-left{
+  transform: scaleX(-1);
+   animation: RUNNER .8s steps(8, end) infinite;
+}
