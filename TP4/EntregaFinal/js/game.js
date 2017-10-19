@@ -1,12 +1,13 @@
 var self;
+var idInterbalGame;
+var idInterbalReloj;
+var point=0;
+var best=0;
+var lives=3;
 
 function Game(player){
-    this.point=0;
-    this.best=0;
-    this.lives=3;
     this.enemigos = [];
     this.player = player;
-    this.idciclos = null;
     self = this;
     for(let i=0;i<5;i++){
         enemy = new Enemy(i);
@@ -22,19 +23,19 @@ Game.prototype.update = function(){
       if(this.verifyColition(this.player,this.enemigos[i])){
           // logica del juego
           console.log('toca');
-          this.lives=this.lives-1;
+          lives=lives-1;
       }
       else {
         console.log('no toca');
         if((this.player.estado=='jump')||(this.player.estado=='down'))
-            this.point=this.point+1;
+            point=point+1;
       }
   }
 }
 
 Game.prototype.jugar = function(){
   this.reloj();
-  this.idciclos = setInterval(function(){
+  idInterbalGame = setInterval(function(){
     self.update();
   }, 50);
 }
@@ -65,22 +66,24 @@ Game.prototype.verifyColition = function(player,enemy){
 }
 
 Game.prototype.reloj = function(){
-  var minutos = 3;
-  var segundos = 00;
-  setInterval(function(){
+  var minutos = 0;
+  var segundos = 20;
+  idInterbalReloj = setInterval(function(){
      if (segundos === 0){ segundos=59; minutos--;}
      segundos --;
      if((segundos === 0)&&(minutos===0)){
-        clearInterval(this.idciclos);
-        if(this.lives>0){
+        clearInterval(idInterbalGame);
+        clearInterval(idInterbalReloj);
+        if(lives>0){
            alert('gano');
          }
          else{
             alert('perdio');
          }
      }else{
-        if(this.lives==0){
-           clearInterval(this.idciclos);
+        if(lives==0){
+           clearInterval(idInterbalReloj);
+           clearInterval(idInterbalGame);
            alert('perdio');
         }
      }
