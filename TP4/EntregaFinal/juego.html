@@ -2,13 +2,13 @@
 
 
 <head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-<link rel="stylesheet" href="css/keyframes.css">
-<link rel="stylesheet" href="css/style.css">
-<script src="js/game.js" type="javascript" ></script>
-<script src="js/player.js" type="javascript" ></script>
-<script src="js/moves.js" type="javascript" ></script>
-<script src="js/enemy.js" type="javascript" ></script>
+
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+   <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
+   <link rel="stylesheet" href="css/keyframes.css">
+   <link rel="stylesheet" href="css/game.css">
+   <link rel="stylesheet" href="css/player.css">
+   <link rel="stylesheet" href="css/enemy.css">
 
 </head>
 
@@ -22,29 +22,47 @@
               <nav>
                  <ul class="nav justify-content-center">
                    <li class="nav-item">
-                     <a class="nav-link" href="#">Libes</a>
+                     <a class="nav-link" href="#"> <span id="vidas">3</span> <img src="image/vida.png" height="40" width="40" /> </a>
                    </li>
                    <li class="nav-item">
-                     <a class="nav-link" href="#">Time</a>
+                     <a class="nav-link" href="#">Time: <span id="time">03:00</span></a>
                    </li>
                    <li class="nav-item">
-                     <a class="nav-link" href="#">Best</a>
+                       <a class="nav-link" href="#">Point: <span id="point">0</span></a>
                    </li>
                    <li class="nav-item">
-                     <a class="nav-link" href="#">Controls</a>
+                     <a class="nav-link" href="#">Best: <span id="best">0</span></a>
+                   </li>
+                   <li class="nav-item">
+                     <a class="nav-link" href="#" id="controles">Controls</a>
                    </li>
                   </ul>
               <nav>
             </header>
-            <main>
+
+            <main id="pantalla">
                <div id="runner"></div>
+
+               <div class="enemy" id="0"></div>
+               <div class="enemy" id="1"></div>
+               <div class="enemy" id="2"></div>
+               <div class="enemy" id="3"></div>
+               <div class="enemy" id="4"></div>
+
             <main>
-            <footer></footer>
+
+            <footer>Terrorist Game - Interfaces de usuario e Interacción - Bravo Eduardo</footer>
 
          </div>
       </div>
    </div>
 </div>
+
+<script type="text/javascript" src="js/player.js"></script>
+    <script type="text/javascript" src="js/enemy.js"></script>
+    <script type="text/javascript" src="js/game.js"></script>
+    <script type="text/javascript" src="js/moves.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
 
 </body>
 </html>

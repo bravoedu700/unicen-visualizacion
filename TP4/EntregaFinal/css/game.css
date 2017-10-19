@@ -51,21 +51,19 @@ height:100%;
    /*animation: PISO-GAME .8s steps(8, end) infinite;*/
 }
 
-#runner {
-   width: 83px;
-   height: 128px;
-   margin-left: 150px;
-   margin-top: 408px;
-   background:transparent url("../image/reposo.png")80%;
-   background-repeat: no-repeat;
-
+nav a{
+   font-size: 22px;
+   color: #000;
+   font-family: 'Russo One', sans-serif;
+   line-height: 30px;
 }
 
-.runner-right{
-   animation: RUNNER .8s steps(8, end) infinite;
-}
+#vidas{}
 
-.runner-left{
-  transform: scaleX(-1);
-   animation: RUNNER .8s steps(8, end) infinite;
+footer{
+   margin-top: 20px;
+   text-align: center;
+   font-family: 'Russo One', sans-serif;
+   font-size: 14px;
+   color: #a3c2c2;
 }

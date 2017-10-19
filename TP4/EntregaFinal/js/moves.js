@@ -1,21 +1,29 @@
 document.onkeydown = function(e) {
   switch(event.code) {
       case "ArrowRight":
-          document.getElementById('runner').classList.toggle('runner-right');
+          player.right();
+          console.log(player);
           break;
       case "ArrowLeft":
-      document.getElementById('runner').classList.toggle('runner-left');
+          player.left();
           break;
-      case "ArrowTop":
-
+      case "ArrowUp":
+          player.jump();
           break;
       case "ArrowDown":
-
+          player.down();
           break;
-      case "Space":
-
+      default:
+          player.stop();
           break;
   }
+}
 
+document.onkeyup = function(e) {
+  switch(event.code) {
+    default:
+      player.stop();
 
+        break;
+  }
 }

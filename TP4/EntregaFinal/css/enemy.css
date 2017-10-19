@@ -1,0 +1,11 @@
+.enemy{
+  width: 60px;
+  height: 60px;
+  display: inline-block;
+  border-radius: 100%;
+  position: absolute;
+  left: 1800px;
+  top: 540px;
+  background:url("../image/bomba.png") 100%;
+  background-repeat: no-repeat;
+}

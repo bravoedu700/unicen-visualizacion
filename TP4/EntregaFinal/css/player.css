@@ -1,0 +1,29 @@
+#runner {
+   width: 83px;
+   height: 128px;
+   margin-left: 150px;
+   margin-top: 415px;
+   background:transparent url("../image/reposo.png")80%;
+   background-repeat: no-repeat;
+}
+.runner-jump{
+  transform: translateY(-50px);
+  animation: RUNNER .8s steps(8, end) infinite;
+}
+.runner-down{
+  transform: translateY(50px);
+  animation: RUNNER .8s steps(8, end) infinite;
+}
+
+.runner-stop{
+  /*animation: RUNNER .8s steps(8, end) infinite;*/
+  background:transparent url("../image/reposo.png")80%;
+}
+.runner-right{
+  transform: translateX(20px);
+   animation: RUNNER .8s steps(8, end) infinite;
+}
+.runner-left{
+  transform: scaleX(-1) translateX(20px);
+   animation: RUNNER .8s steps(8, end) infinite;
+}
