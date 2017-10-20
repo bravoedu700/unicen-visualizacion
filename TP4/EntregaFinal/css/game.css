@@ -5,49 +5,60 @@ body{
   background-size:cover; /* Encajamos la imagen al 100% del ancho */
   background-attachment: fixed; /* Establecemos una posicion fija para la imagen */
   background-repeat:repeat-x;
+  overflow: hidden;
  }
+header{ width: 100%; height: 20px; position:absolute;}
+main{ width: 100%; height: 562px; margin: auto; position:absolute; top: 0px; left: auto;}
+footer{ position: absolute; top: 583px; left: 0; width: 100%; height: 20px;}
 
 .nubes{
 position:absolute;
+top: 0px; left: 0px;
 z-index:11;
 background:transparent url("../image/PARALLAX/layer_02.png") 100% ;
 margin:0;
 padding:0;
 width:100%;
-height:100%;
+height:703px;
 animation: ARBOL-GAME 124s steps(8, end) infinite;
 }
 
 .montanias{
 position:absolute;
+top: 0px; left: 0px;
 z-index:12;
 background:transparent url("../image/PARALLAX/layer_03.png") 100% ;
 margin:0;
 padding:0;
 width:100%;
-height:100%;
+height:703px;
+background-repeat: repeat-x;
 /*animation: ARBOL-GAME 44s steps(8, end) infinite;*/
 }
 
 .arboles{
    position:absolute;
+   top: 0px; left: 0px;
    z-index:13;
    background:transparent url("../image/PARALLAX/layer_04.png") 100% ;
    margin:0;
    padding:0;
    width:100%;
-   height:100%;
+height:703px;
+   background-repeat: repeat-x;
    /*animation: ARBOL-GAME 19s steps(8, end) infinite;*/
 }
 
 .piso{
    position:absolute;
+   top: 0px; left: 0px;
    z-index:14;
    background:transparent url("../image/PARALLAX/layer_05.png") 100%;
    margin:0;
    padding:0;
    width:100%;
-   height:100%;
+   height:703px;
+   background-repeat: repeat-x;
    /*animation: PISO-GAME .8s steps(8, end) infinite;*/
 }
 

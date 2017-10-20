@@ -2,7 +2,7 @@ function Player(){
     this.estado = 'stop';
     this.radio = 83;
     this.posicionX = 150;
-    this.posicionY = 520;
+    this.posicionY = 483;
     this.player = document.getElementById('runner');
 }
 

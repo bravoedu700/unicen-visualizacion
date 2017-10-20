@@ -3,9 +3,16 @@
   height: 60px;
   display: inline-block;
   border-radius: 100%;
-  position: absolute;
-  left: 1800px;
-  top: 540px;
+  position: relative;
   background:url("../image/bomba.png") 100%;
   background-repeat: no-repeat;
+  z-index:20;
+/*
+  animation: SPIN 2s steps(10, end) infinite;
+
+  animation: REBOTE 4s infinite;
+
+  animation: 1s MISSES infinite;
+*/
+
 }
