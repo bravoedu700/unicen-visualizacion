@@ -1,27 +1,35 @@
-@keyframes RUNNER {
-   from {background-position: 0px;}
-   to {background-position: -738px;}
+@keyframes BACKGROUND-GAME{
+   from {background-position: 1250px;}
+   to {background-position: 0px;}
 }
 
+@keyframes RUNNER {
+   from {background-position: 0px;}
+   to {background-position: -415px;}
+}
+
+@keyframes RUNNER-STOP{
+  from {background-position: 0px;}
+  to {background-position: -479px;}
+}
+
+@keyframes RUNNER-JUMP {
+   from {background-position: 0px;}
+   to {background-position: -563px;}
+
+   0%, 100% {transform: translateY(0);}
+   50% {transform: translateY(-200px);}
+}
+
+@keyframes RUNNER-DIE{
+  from {background-position: 0px;}
+  to {background-position: 1067px;}
+
+}
 
 @keyframes ENEMY{
    from {background-position: 60px;}
    to {background-position: -2370px;}
-}
-
-@keyframes COIN{
-   from {background-position: 60px;}
-   to {background-position: -2370px;}
-}
-
-@keyframes PISO-GAME{
-   from {background-position: 60px;}
-   to {background-position: -1250px;}
-}
-
-@keyframes ARBOL-GAME{
-   from {background-position: 0px;}
-   to {background-position: 1250px;}
 }
 
 @keyframes SPIN{
@@ -38,4 +46,9 @@
 @keyframes MISSES{
    25%, 75% { opacity: 0; }
    50% { opacity: 1; }
+}
+
+@keyframes EXPLOTION{
+  from {background-position: 0px;}
+  to {background-position: -2200px;}
 }

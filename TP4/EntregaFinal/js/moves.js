@@ -1,29 +1,31 @@
 document.onkeydown = function(e) {
   switch(event.code) {
       case "ArrowRight":
-          player.right();
-          console.log(player);
-          break;
-      case "ArrowLeft":
-          player.left();
+          ArrowRight = true;
           break;
       case "ArrowUp":
-          player.jump();
+          ArrowUp = true;
           break;
       case "ArrowDown":
-          player.down();
+          ArrowDown = true;
           break;
       default:
-          player.stop();
           break;
   }
 }
 
 document.onkeyup = function(e) {
   switch(event.code) {
+    case "ArrowRight":
+        ArrowRight = false;
+        break;
+    case "ArrowUp":
+        ArrowUp = false;
+        break;
+    case "ArrowDown":
+        ArrowDown = false;
+        break;
     default:
-      player.stop();
-
         break;
   }
 }

@@ -3,4 +3,4 @@ var juego = new Game(player);
 
 juego.jugar();
 
-console.log(juego);
+//console.log(juego);

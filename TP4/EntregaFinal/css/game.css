@@ -11,29 +11,32 @@ header{ width: 100%; height: 20px; position:absolute;}
 main{ width: 100%; height: 562px; margin: auto; position:absolute; top: 0px; left: auto;}
 footer{ position: absolute; top: 583px; left: 0; width: 100%; height: 20px;}
 
+
 .nubes{
-position:absolute;
-top: 0px; left: 0px;
-z-index:11;
-background:transparent url("../image/PARALLAX/layer_02.png") 100% ;
-margin:0;
-padding:0;
-width:100%;
-height:703px;
-animation: ARBOL-GAME 124s steps(8, end) infinite;
+  position:absolute;
+  top: 0px; left: 0px;
+  z-index:11;
+  background:transparent url("../image/PARALLAX/layer_02.png") 100% ;
+  margin:0;
+  padding:0;
+  width:100%;
+  height:703px;
+  animation: BACKGROUND-GAME 124s linear infinite;
+  animation-play-state: paused;
 }
 
 .montanias{
-position:absolute;
-top: 0px; left: 0px;
-z-index:12;
-background:transparent url("../image/PARALLAX/layer_03.png") 100% ;
-margin:0;
-padding:0;
-width:100%;
-height:703px;
-background-repeat: repeat-x;
-/*animation: ARBOL-GAME 44s steps(8, end) infinite;*/
+  position:absolute;
+  top: 0px; left: 0px;
+  z-index:12;
+  background:transparent url("../image/PARALLAX/layer_03.png") 100% ;
+  margin:0;
+  padding:0;
+  width:100%;
+  height:703px;
+  background-repeat: repeat-x;
+  animation: BACKGROUND-GAME 44s linear infinite;
+  animation-play-state: paused;
 }
 
 .arboles{
@@ -44,9 +47,10 @@ background-repeat: repeat-x;
    margin:0;
    padding:0;
    width:100%;
-height:703px;
+   height:703px;
    background-repeat: repeat-x;
-   /*animation: ARBOL-GAME 19s steps(8, end) infinite;*/
+   animation: BACKGROUND-GAME 19s linear infinite;
+   animation-play-state: paused;
 }
 
 .piso{
@@ -58,8 +62,8 @@ height:703px;
    padding:0;
    width:100%;
    height:703px;
-   background-repeat: repeat-x;
-   /*animation: PISO-GAME .8s steps(8, end) infinite;*/
+   animation: BACKGROUND-GAME 3s linear infinite;
+   animation-play-state: paused;
 }
 
 nav a{

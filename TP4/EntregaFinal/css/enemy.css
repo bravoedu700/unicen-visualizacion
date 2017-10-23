@@ -4,9 +4,11 @@
   display: inline-block;
   border-radius: 100%;
   position: relative;
-  background:url("../image/bomba.png") 100%;
+  background:url("../image/bomba.png");
   background-repeat: no-repeat;
+  background-size:cover;
   z-index:20;
+  border: 1px solid;
 /*
   animation: SPIN 2s steps(10, end) infinite;
 
@@ -16,3 +18,11 @@
 */
 
 }
+
+.explotion{
+  background:url("../image/Explosion.png");
+  animation: EXPLOTION 2s steps(16);
+}
+ .oculto{
+   display: none;
+ }

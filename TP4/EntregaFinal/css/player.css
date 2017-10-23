@@ -4,25 +4,40 @@
    position: absolute;
    top: 483px;
    left: 150px;
-   background:transparent url("../image/esperar.png");
-   background-size: cover;
-   background-position: left;
-}
-.runner-jump{
-  transform: translateY(-50px);
-  animation: RUNNER .8s steps(8, end) infinite;
-}
-.runner-down{
-  transform: translateY(50px);
-  animation: RUNNER .8s steps(8, end) infinite;
+   border: 1px solid;
 }
 
 .runner-stop{
-  /*animation: RUNNER .8s steps(8, end) infinite;*/
-  background:transparent url("../image/esperar.png")80%;
-  background-size: cover;
-  background-position: center;
+  background:transparent url("../image/esperar.png");
+  animation: RUNNER-STOP .8s steps(8, end) infinite;
 }
+
+.runner{
+  background:transparent url("../image/correr.png");
+  animation: RUNNER .8s steps(6 , end) infinite;
+}
+
+.runner-jump{
+  background:transparent url("../image/saltar.png");
+  animation: RUNNER-JUMP .8s steps(8);
+}
+
+.runner-die{
+
+  background:transparent url("../image/morir.png");
+  animation: RUNNER-DIE .8s steps(9);
+  animation-fill-mode: backwards;
+  background-position: right;
+
+}
+
+.runner-down{
+  background:transparent url("../image/saltar.png");
+  background-size: cover;
+  background-position: left ;
+  animation: RUNNER-DOWN .8s steps(8, end) infinite;
+}
+
 .runner-right{
   transform: translateX(20px);
    animation: RUNNER .8s steps(8, end) infinite;

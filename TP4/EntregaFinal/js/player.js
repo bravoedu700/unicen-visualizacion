@@ -1,9 +1,11 @@
+var self;
 function Player(){
     this.estado = 'stop';
     this.radio = 83;
     this.posicionX = 150;
     this.posicionY = 483;
     this.player = document.getElementById('runner');
+    self=this;
 }
 
 Player.prototype.getX = function(){
@@ -22,26 +24,32 @@ Player.prototype.stop = function(){
   this.estado = 'stop';
   this.player.className = "runner-stop";
   /* animation end y animation start */
-  this.player.addEventListener('webkitAnimationEnd',function(){
-      this.player.front();
+  this.player.addEventListener('webkitAnimationEnd',() => {
+      this.stop();
   })
 }
 
 Player.prototype.jump = function(){
   this.estado = 'jump';
   this.player.className = "runner-jump";
-  this.player.style.top = (this.player.style.top-55) + 'px';
+  this.player.addEventListener('webkitAnimationEnd',() => {
+    if(ArrowRight==true)
+      this.right();
+    else
+      this.stop();
+  });
 
 }
 
 Player.prototype.left = function(){
-  this.estado = 'left';
-  this.player.className = "runner-left";
+  this.player.style.transform = 'rotate(360deg)';
+  this.estado = 'runner';
+  this.player.className = "runner";
 }
 
 Player.prototype.right = function(){
-  this.estado = 'right';
-  this.player.className = "runner-right";
+  this.estado = 'runner';
+  this.player.className = "runner";
 }
 
 Player.prototype.down = function(){

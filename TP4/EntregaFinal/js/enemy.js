@@ -6,11 +6,13 @@ function Enemy(id, posX){
   this.enemy = document.getElementById(id);
   this.enemy.style.left = this.posicionX + 'px';
   this.enemy.style.top = this.posicionY + 'px';
+
   aux = Math.random() * (10 - 1) + 1;
   if(aux<5)
    this.enemy.style.animation = 'REBOTE 4s infinite';
   else
    this.enemy.style.animation = 'SPIN 2s steps(10, end) infinite';
+
   this.toco=0;
 }
 
@@ -22,6 +24,20 @@ Enemy.prototype.setAnimacion = function(){
    else
     this.enemy.style.animation = 'SPIN 2s steps(10, end) infinite';
 }
+
+Enemy.prototype.setExploto = function(){
+  this.enemy = document.getElementById(this.id);
+  this.enemy.classList.add("explotion");
+  this.enemy.addEventListener('webkitAnimationEnd',() => {
+      this.setOculto();
+  })
+}
+
+Enemy.prototype.setOculto = function(){
+  this.enemy = document.getElementById(this.id);
+  this.enemy.classList.add("oculto");
+}
+
 
 Enemy.prototype.getX = function(){
   return this.posicionX;
@@ -46,8 +62,8 @@ Enemy.prototype.set = function(x,y){
   this.posicionY = y;
 }
 
-Enemy.prototype.move = function(){
-  this.posicionX = this.posicionX-2;
+Enemy.prototype.move = function(velEnemy){
+  this.posicionX = this.posicionX-velEnemy;
   if((this.posicionX+this.radio) < 0)
     this.posicionX = screen.width;
   this.enemy.style.left = this.posicionX + 'px';
