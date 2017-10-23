@@ -6,6 +6,7 @@ function Enemy(id, newPosx){
   this.enemy = document.getElementById(id);
   this.enemy.style.left = this.posicionX + 'px';
   this.enemy.style.top = this.posicionY + 'px';
+  
 
   aux = Math.random() * (10 - 1) + 1;
   if(aux < 5)

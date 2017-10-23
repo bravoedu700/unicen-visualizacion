@@ -19,7 +19,7 @@
    background:url("../image/bomba.png");
    background-repeat: no-repeat;
    background-size:cover;
-   animation: REBOTE 4s infinite;
+   animation: REBOTE 2s infinite;
 }
 
 .explotion{

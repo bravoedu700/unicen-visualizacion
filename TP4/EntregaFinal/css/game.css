@@ -82,3 +82,25 @@ footer{
    font-size: 14px;
    color: #a3c2c2;
 }
+
+.gameOver{
+   background-image: url("../image/gameover.png");
+   background-size:contain;
+   background-repeat: no-repeat;
+   background-position: top;
+   margin: 23%;
+   margin-top: 10%;
+   width: 50%;
+   height: 50%;
+   z-index: 680;
+   position: absolute;
+   background-color: #ccc;
+}
+
+.gameOver img{
+   margin-left: 40%;
+   margin-top: 29%;
+   position: relative;
+   width: 120px;
+   cursor: pointer;
+}

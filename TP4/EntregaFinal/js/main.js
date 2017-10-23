@@ -1,6 +1,10 @@
 var player = new Player();
 var juego = new Game(player);
 
-juego.jugar();
+function jugarNew(){
+   juego.hidePopup();
+   juego.jugar();
+}
+
 
 //console.log(juego);

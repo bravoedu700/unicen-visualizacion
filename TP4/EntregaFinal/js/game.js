@@ -76,8 +76,10 @@ Game.prototype.update = function(){
 
   if(lives==0){
      this.player.die();
+     this.showPopup();
      clearInterval(idInterbalReloj);
      clearInterval(idInterbalGame);
+     //this.clearAnimations();
    }
 
 }
@@ -179,4 +181,12 @@ Game.prototype.backgroundStop = function(){
   document.getElementById('montanias').style.animationPlayState = 'paused';
   document.getElementById('nubes').style.animationPlayState = 'paused';
   document.getElementById('body').style.animationPlayState = 'paused';
+}
+
+Game.prototype.hidePopup = function(){
+   document.getElementById('popUp').style.display = 'none';
+}
+
+Game.prototype.showPopup = function(){
+   document.getElementById('popUp').style.display = 'block';
 }
