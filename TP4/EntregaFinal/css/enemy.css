@@ -4,25 +4,31 @@
   display: inline-block;
   border-radius: 100%;
   position: relative;
-  background:url("../image/bomba.png");
-  background-repeat: no-repeat;
-  background-size:cover;
   z-index:20;
   border: 1px solid;
-/*
-  animation: SPIN 2s steps(10, end) infinite;
+}
 
-  animation: REBOTE 4s infinite;
+.rotar{
+   background:url("../image/bomba.png");
+   background-repeat: no-repeat;
+   background-size:cover;
+   animation: SPIN 2s steps(10, end) infinite;
+}
 
-  animation: 1s MISSES infinite;
-*/
-
+.saltar{
+   background:url("../image/bomba.png");
+   background-repeat: no-repeat;
+   background-size:cover;
+   animation: REBOTE 4s infinite;
 }
 
 .explotion{
-  background:url("../image/Explosion.png");
-  animation: EXPLOTION 2s steps(16);
+   background:url("../image/explosion.png");
+   background-size: cover;
+   background-position: left;
+   animation: EXPLOTION 1s steps(15, end);
 }
- .oculto{
-   display: none;
- }
+
+.oculto{
+  display: none;
+}

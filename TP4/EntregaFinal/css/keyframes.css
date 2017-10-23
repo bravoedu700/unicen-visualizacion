@@ -49,6 +49,6 @@
 }
 
 @keyframes EXPLOTION{
-  from {background-position: 0px;}
+  from {background-position: 10px;}
   to {background-position: -2200px;}
 }

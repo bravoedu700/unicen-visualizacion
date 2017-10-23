@@ -3,7 +3,7 @@ var idInterbalGame;
 var idInterbalReloj;
 var point=0;
 var best=0;
-var lives=3;
+var lives=10;
 var ArrowRight = false;
 var ArrowUp = false;
 var ArrowDown = false;
@@ -12,12 +12,12 @@ function Game(player){
     this.enemigos = [];
     this.player = player;
     self = this;
-    distancia=0;
+    var distancia=0;
+    var newPosx = 0;
     for(let i=0;i<5;i++){
         distancia = distancia + Math.round(Math.random() * (200 - 80) + 80);
-        posx = 1220 + distancia
-        enemy = new Enemy(i, posx);
-        enemy.draw();
+        newPosx = 1220 + distancia
+        enemy = new Enemy(i, newPosx);
         this.enemigos.push(enemy);
     }
 }
@@ -35,7 +35,7 @@ Game.prototype.drawBest = function(valor){
 }
 
 Game.prototype.update = function(){
-
+  var velEnemy=2;
   if(ArrowUp == true){
       player.jump();
       this.backgroundStart();
@@ -57,7 +57,6 @@ Game.prototype.update = function(){
       velEnemy=2;
     }
 
-  //console.log(this.enemigos);
   for(let i=0;i<this.enemigos.length;i++){
       this.enemigos[i].move(velEnemy);
       if(this.verifyColition(this.player,this.enemigos[i])){
@@ -103,11 +102,19 @@ Game.prototype.verifyColition = function(player,enemy){
 
   playerMaxX = player.getX() + player.getR();
   playerMaxY = player.getY() + player.getR();
-  enemyMaxX = enemy.getX() + enemy.getR();
+
+  enemyMaxX = enemy.getLeft() + enemy.getR();
+  enemyMINY = enemy.getTop() + enemy.getR();
+
+  if(player.getEstado()=='jump'){
+     playerMaxY=playerMaxY-200;
+  }
+  //console.log();
+  console.log(playerMaxY+' - '+enemyMINY);
 
 
   if(enemy.getToco()==0){
-     if(playerMaxX < enemy.getX()){
+     if(playerMaxX < enemy.getLeft()){
          return false;
      }
      else {
@@ -115,7 +122,7 @@ Game.prototype.verifyColition = function(player,enemy){
            return false;
          }
          else {
-           if(playerMaxY < enemy.getY()){
+           if(playerMaxY < enemy.getTop()){
              return false;
            }
            else {
