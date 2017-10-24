@@ -18,16 +18,22 @@
          <div class="arboles" id="arboles">
             <div class="piso" id="piso">
             <div class="gameOver" id="popUp">
-               <img src="http://pluspng.com/img-png/restart-png-size-512.png" width="200" title="Restart" onclick="jugarNew()" />
+               <h1 id="msjPopup">New Game</h1><br /><br />
+               <ul class="nav">
+                  <li class="nav-item"><a class="nav-link" onclick="jugarNew(00,30,3)" href="#" >Easy</a></li>
+                  <li class="nav-item"><a class="nav-link" onclick="jugarNew(00,60,5)" href="#" >Half</a></li>
+                  <li class="nav-item"><a class="nav-link" onclick="jugarNew(01,30,7)" href="#" >Difficult</a></li>
+               </ul>
             </div>
+            <div class="controles" id="control" style="visibility: hidden;"></div>
             <header>
               <nav>
                  <ul class="nav justify-content-center">
                    <li class="nav-item">
-                     <a class="nav-link" href="#"> <span id="vidas">3</span> <img src="image/vida.png" height="40" width="40" /> </a>
+                     <a class="nav-link" href="#"> <span id="vidas">5</span> <img src="image/vida.png" height="40" width="40" /> </a>
                    </li>
                    <li class="nav-item">
-                     <a class="nav-link" href="#">Time: <span id="time">03:00</span></a>
+                     <a class="nav-link" href="#">Time: <span id="time">01:00</span></a>
                    </li>
                    <li class="nav-item">
                        <a class="nav-link" href="#">Point: <span id="point">0</span></a>
@@ -36,7 +42,7 @@
                      <a class="nav-link" href="#">Best: <span id="best">0</span></a>
                    </li>
                    <li class="nav-item">
-                     <a class="nav-link" href="#" id="controles">Controls</a>
+                     <a class="nav-link" href="#" id="controles" onclick="mostrarOcultar()">Controls</a>
                    </li>
                   </ul>
               <nav>
@@ -45,11 +51,11 @@
             <main id="pantalla">
                <div id="runner" class="runner-stop"></div>
 
-               <div class="enemy" id="0"></div>
-               <div class="enemy" id="1"></div>
-               <div class="enemy" id="2"></div>
-               <div class="enemy" id="3"></div>
-               <div class="enemy" id="4"></div>
+               <div id="0"></div>
+               <div id="1"></div>
+               <div id="2"></div>
+               <div id="3"></div>
+               <div id="4"></div>
 
             <main>
 

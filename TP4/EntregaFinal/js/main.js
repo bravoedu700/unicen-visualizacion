@@ -1,10 +1,15 @@
 var player = new Player();
 var juego = new Game(player);
 
-function jugarNew(){
+function jugarNew(min,time,speed){
+   velEnemySet=speed;
+   minutos=min;
+   segundos=time;
    juego.hidePopup();
-   juego.jugar();
+   juego.jugar(5);
 }
 
-
-//console.log(juego);
+function mostrarOcultar(){
+   var elem = document.getElementById('control');
+   elem.style.visibility = (elem.style.visibility == "hidden") ? "visible" : "hidden";
+}

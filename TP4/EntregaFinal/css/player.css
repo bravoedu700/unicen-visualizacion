@@ -4,7 +4,7 @@
    position: absolute;
    top: 483px;
    left: 150px;
-   border: 1px solid;
+   /*border: 1px solid;*/
 }
 
 .runner-stop{
@@ -23,26 +23,21 @@
 }
 
 .runner-die{
-
+  width: 128px;
+  height: 128px;
   background:transparent url("../image/morir.png");
   animation: RUNNER-DIE .8s steps(9);
-  animation-fill-mode: backwards;
-  background-position: right;
+  animation-fill-mode:forwards;
+  animation-iteration-count: 1;
 
 }
 
-.runner-down{
-  background:transparent url("../image/saltar.png");
-  background-size: cover;
-  background-position: left ;
-  animation: RUNNER-DOWN .8s steps(8, end) infinite;
+.runner-hurts{
+   background:transparent url("../image/morir.png");
+   animation: RUNNER-HURTS .8s steps(6);
 }
 
 .runner-right{
   transform: translateX(20px);
-   animation: RUNNER .8s steps(8, end) infinite;
-}
-.runner-left{
-  transform: scaleX(-1) translateX(20px);
-   animation: RUNNER .8s steps(8, end) infinite;
+  animation: RUNNER .8s steps(8, end) infinite;
 }

@@ -3,23 +3,18 @@ var idInterbalGame;
 var idInterbalReloj;
 var point=0;
 var best=0;
-var lives=10;
+var lives=0;
 var ArrowRight = false;
 var ArrowUp = false;
 var ArrowDown = false;
+var velEnemySet=2;
+var minutos = 0;
+var segundos = 10;
 
 function Game(player){
     this.enemigos = [];
     this.player = player;
     self = this;
-    var distancia=0;
-    var newPosx = 0;
-    for(let i=0;i<5;i++){
-        distancia = distancia + Math.round(Math.random() * (200 - 80) + 80);
-        newPosx = 1220 + distancia
-        enemy = new Enemy(i, newPosx);
-        this.enemigos.push(enemy);
-    }
 }
 
 Game.prototype.drawLives = function(valor){
@@ -35,27 +30,31 @@ Game.prototype.drawBest = function(valor){
 }
 
 Game.prototype.update = function(){
-  var velEnemy=2;
+
   if(ArrowUp == true){
       player.jump();
-      this.backgroundStart();
-      velEnemy=8;
-    }
-    else if(ArrowDown == true){
-      player.down();
-      this.backgroundStart();
-      velEnemy=8;
+      if(ArrowRight == true){
+         this.backgroundStart();
+         velEnemy=velEnemySet*4;
+      }
+
     }
     else if(ArrowRight == true){
       player.right();
       this.backgroundStart();
-      velEnemy=8;
+      velEnemy=velEnemySet*4;
     }
-    else {
-      player.stop();
+    else{
+      if(player.getEstado()!='die')
+         player.stop();
       this.backgroundStop();
-      velEnemy=2;
+      velEnemy=velEnemySet/4;
     }
+
+    //console.log(juego);
+   if(this.player.getEstado()=='die'){
+         this.player.die();
+   }
 
   for(let i=0;i<this.enemigos.length;i++){
       this.enemigos[i].move(velEnemy);
@@ -65,34 +64,55 @@ Game.prototype.update = function(){
           self.drawLives(lives);
           this.enemigos[i].setToco(1);
           this.enemigos[i].setExploto();
+          this.player.hurts();
       }
       else {
             if(this.pasoEnemigo(this.player,this.enemigos[i])){//console.log('no toca');
-              point=point+1;
-              self.drawPoint(point);
+               point=point+10;
+               self.drawPoint(point);
+               this.enemigos[i].setPaso(1);
             }
       }
-   }
-
-  if(lives==0){
-     this.player.die();
-     this.showPopup();
-     clearInterval(idInterbalReloj);
-     clearInterval(idInterbalGame);
-     //this.clearAnimations();
+      //chequeo las vidas
+      if(lives==0){
+         clearInterval(idInterbalGame);
+         clearInterval(idInterbalReloj);
+         this.player.die();
+         this.showPopup('Game Over');
+       }
    }
 
 }
 
-Game.prototype.jugar = function(){
-  this.reloj();
-  idInterbalGame = setInterval(function(){
-    self.update();
-  }, 50);
+Game.prototype.restart = function(){
+   point=0;
+   self.drawPoint(0);
+   this.enemigos = [];
+   var distancia=0;
+   var newPosx = 0;
+   for(let i=0;i<5;i++){
+      distancia = distancia + Math.round(Math.random() * (200 - 80) + 80);
+      newPosx = 1220 + distancia
+      enemy = new Enemy(i, newPosx);
+      enemy.setAnimacion(i);
+      this.enemigos.push(enemy);
+   }
+}
+
+Game.prototype.jugar = function(newLives){
+   this.restart();
+   lives=newLives;
+   this.drawLives(lives);
+   this.drawPoint(0);
+   this.reloj();
+   idInterbalGame = setInterval(function(){
+     self.update();
+   }, 50);
 }
 
 Game.prototype.pasoEnemigo = function(player,enemy){
-  if((player.getX()>enemy.getX())&&(enemy.getToco()==0)){
+
+  if((player.getX()>enemy.getLeft())&&(enemy.getToco()==0)&&(enemy.getPaso()==0)){
       return true;
   }
   else {
@@ -112,8 +132,7 @@ Game.prototype.verifyColition = function(player,enemy){
      playerMaxY=playerMaxY-200;
   }
   //console.log();
-  console.log(playerMaxY+' - '+enemyMINY);
-
+  //console.log(playerMaxY+' - '+enemyMINY);
 
   if(enemy.getToco()==0){
      if(playerMaxX < enemy.getLeft()){
@@ -139,8 +158,6 @@ Game.prototype.verifyColition = function(player,enemy){
 }
 
 Game.prototype.reloj = function(){
-  var minutos = 2;
-  var segundos = 59;
   idInterbalReloj = setInterval(function(){
      if (segundos === 0){ segundos=59; minutos--;}
      segundos --;
@@ -148,16 +165,23 @@ Game.prototype.reloj = function(){
         clearInterval(idInterbalGame);
         clearInterval(idInterbalReloj);
         if(lives>0){
-           alert('gano');
+           if(best<point){
+             best=point;
+             self.drawBest(best);
+             self.showPopup('NEW RECORD');
+          }else{
+             self.showPopup('WINNER');
+          }
          }
          else{
-            alert('perdio');
+            self.showPopup('Game Over');
+            self.showPopup('Game Over');
          }
      }else{
         if(lives==0){
            clearInterval(idInterbalReloj);
            clearInterval(idInterbalGame);
-           alert('perdio');
+           self.showPopup('Game Over');
         }
      }
 
@@ -175,6 +199,7 @@ Game.prototype.backgroundStart = function(){
   document.getElementById('nubes').style.animationPlayState = 'running';
   document.getElementById('body').style.animationPlayState = 'running';
 }
+
 Game.prototype.backgroundStop = function(){
   document.getElementById('piso').style.animationPlayState = 'paused';
   document.getElementById('arboles').style.animationPlayState = 'paused';
@@ -187,6 +212,12 @@ Game.prototype.hidePopup = function(){
    document.getElementById('popUp').style.display = 'none';
 }
 
-Game.prototype.showPopup = function(){
+Game.prototype.showPopup = function(msj){
+   ArrowRight = false;
+   ArrowUp = false;
+   ArrowDown = false;
+   this.backgroundStop();
+   this.restart();
    document.getElementById('popUp').style.display = 'block';
+   document.getElementById('msjPopup').innerHTML = msj;
 }

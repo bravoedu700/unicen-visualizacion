@@ -1,31 +1,28 @@
 function Enemy(id, newPosx){
-  this.posicionX = newPosx;
-  this.posicionY = 542;
-  this.radio = 20;
-  this.id = id;
-  this.enemy = document.getElementById(id);
-  this.enemy.style.left = this.posicionX + 'px';
-  this.enemy.style.top = this.posicionY + 'px';
-  
-
-  aux = Math.random() * (10 - 1) + 1;
-  if(aux < 5)
-   this.enemy.classList.add("saltar");
-  else
-   this.enemy.classList.add("rotar");
-
-  this.toco=0;
+   this.posicionX = newPosx;
+   this.posicionY = 542;
+   this.radio = 20;
+   this.id = id;
+   this.enemy = document.getElementById(id);
+   this.setAnimacion(id);
+   this.enemy.style.left = this.posicionX + 'px';
+   this.toco=0;
+   this.paso=0;
 }
 
-Enemy.prototype.setAnimacion = function(){
-   this.enemy = document.getElementById(this.id);
+Enemy.prototype.setAnimacion = function(id){
    aux = Math.random() * (10 - 1) + 1;
-   this.enemy.classList.remove("explotion");
-   this.enemy.classList.remove("oculto");
-   if(aux<5)
-      this.enemy.classList.add("saltar");
-   else
+   this.enemy.className = "";
+   this.enemy.classList.add("enemy");
+   if(aux < 5){
+      this.posicionY = 542;
       this.enemy.classList.add("rotar");
+   }
+   else{
+      this.posicionY = 490;
+      this.enemy.classList.add("volar");
+   }
+   this.enemy.style.top = this.posicionY + 'px';
 }
 
 Enemy.prototype.setExploto = function(){
@@ -79,30 +76,29 @@ Enemy.prototype.setToco = function(toco){
   this.toco = toco;
 }
 
+Enemy.prototype.getPaso = function(){
+  return this.paso;
+}
+
+Enemy.prototype.setPaso = function(paso){
+  this.paso = paso;
+}
+
 Enemy.prototype.getR = function(){
   return this.radio;
-}
-Enemy.prototype.set = function(x,y){
-  this.posicionX = x;
-  this.posicionY = y;
 }
 
 Enemy.prototype.move = function(velEnemy){
   this.posicionX = this.getX()-velEnemy;
-  if((this.posicionX+this.radio) < 0)
+  if((this.posicionX+500) < 0)
     this.reset();
   this.enemy.style.left = this.posicionX + 'px';
 }
 
 Enemy.prototype.reset = function(){
-  this.posicionX = 1250;
+  this.posicionX = 950;
+  this.enemy.style.left = this.posicionX + 'px';
   this.toco=0;
-  console.log(this.id);
-  this.enemy = document.getElementById(this.id);
-  this.enemy.classList.remove("oculto");
-  this.setAnimacion();
-}
-
-Enemy.prototype.draw = function(){
-
+  this.paso=0;
+  this.setAnimacion(this.id);
 }
