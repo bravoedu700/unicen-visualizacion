@@ -70,6 +70,7 @@ Game.prototype.update = function(){
       }
       //chequeo las vidas
       if(lives==0){
+         //si no tengo mas vidas detengo el reloj, el update y calculo el resultado
          msj='GAME OVER';
          clearInterval(idInterbalGame);
          clearInterval(idInterbalReloj);
@@ -125,10 +126,16 @@ Game.prototype.pasoEnemigo = function(player,enemy){
 Game.prototype.verifyColition = function(player,enemy){
 
   playerMaxX = player.getX() + player.getR();
+  playerMixX = player.getX();
+
   playerMaxY = player.getY() + player.getR();
+  playerMinY = player.getY();
 
   enemyMaxX = enemy.getLeft() + enemy.getR();
-  enemyMINY = enemy.getTop() + enemy.getR();
+  enemyMinX = enemy.getLeft();
+
+  enemyMaxY = enemy.getTop();
+  enemyMinY = enemy.getTop() + enemy.getR();
 
   if(player.getEstado()=='jump'){
      playerMaxY=playerMaxY-200;
@@ -137,15 +144,15 @@ Game.prototype.verifyColition = function(player,enemy){
   //console.log(playerMaxY+' - '+enemyMINY);
 
   if(enemy.getToco()==0){
-     if(playerMaxX < enemy.getLeft()){
+     if(playerMaxX < enemyMinX){
          return false;
      }
      else {
-         if(player.getX() > enemyMaxX){
+         if(playerMixX > enemyMaxX){
            return false;
          }
          else {
-           if(playerMaxY < enemy.getTop()){
+           if(playerMaxY < enemyMaxY){
              return false;
            }
            else {
@@ -165,6 +172,7 @@ Game.prototype.reloj = function(){
      if (segundos === 0){ segundos=59; minutos--;}
      segundos --;
      if((segundos === 0)&&(minutos===0)){
+        //si no tengo mas tiempo detengo el reloj, el update y calculo el resultado
         clearInterval(idInterbalGame);
         clearInterval(idInterbalReloj);
         if(lives>0){
@@ -179,15 +187,7 @@ Game.prototype.reloj = function(){
          else{
             msj='GAME OVER';
          }
-
       self.showPopup(msj);
-
-     }else{
-        if(lives==0){
-           clearInterval(idInterbalReloj);
-           clearInterval(idInterbalGame);
-           self.showPopup('GAME OVER');
-        }
      }
 
      var string = "";

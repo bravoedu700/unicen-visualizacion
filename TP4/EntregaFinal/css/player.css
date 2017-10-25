@@ -26,10 +26,10 @@
   width: 128px;
   height: 128px;
   background:url("../image/morir.png");
-  animation: RUNNER-DIE .8s steps(9);
+  animation: RUNNER-DIE .8s steps(8);
   animation-fill-mode:forwards;
   animation-iteration-count: 1;
-
+  animation-timing-function:steps(9);
 }
 
 .runner-hurts{
