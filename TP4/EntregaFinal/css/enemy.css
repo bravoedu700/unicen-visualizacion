@@ -11,8 +11,7 @@
 .rotar{
    background:url("../image/bomba.png");
    background-repeat: no-repeat;
-   background-size:cover;
-   animation: SPIN 2s steps(10, end) infinite;
+   animation: SPIN 1s steps(10, end) infinite , LEVITA 1s steps(4, end) infinite;
 }
 
 .volar{

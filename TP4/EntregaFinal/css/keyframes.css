@@ -52,6 +52,11 @@
    to {background-position: -240px;}
 }
 
+@keyframes LEVITA{
+   from {background-position: 0px;}
+   to {background-position: -270px;}
+}
+
 @keyframes MISSES{
    25%, 75% { opacity: 0; }
    50% { opacity: 1; }

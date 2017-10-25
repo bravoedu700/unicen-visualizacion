@@ -51,11 +51,6 @@ Game.prototype.update = function(){
       velEnemy=velEnemySet/4;
     }
 
-    //console.log(juego);
-   if(this.player.getEstado()=='die'){
-         this.player.die();
-   }
-
   for(let i=0;i<this.enemigos.length;i++){
       this.enemigos[i].move(velEnemy);
       if(this.verifyColition(this.player,this.enemigos[i])){
@@ -75,10 +70,17 @@ Game.prototype.update = function(){
       }
       //chequeo las vidas
       if(lives==0){
+         msj='GAME OVER';
          clearInterval(idInterbalGame);
          clearInterval(idInterbalReloj);
          this.player.die();
-         this.showPopup('Game Over');
+         if(best<point){
+           best=point;
+           this.drawBest(best);
+           msj='NEW RECORD';
+         }
+
+         this.showPopup(msj);
        }
    }
 
@@ -159,6 +161,7 @@ Game.prototype.verifyColition = function(player,enemy){
 
 Game.prototype.reloj = function(){
   idInterbalReloj = setInterval(function(){
+     var msj='';
      if (segundos === 0){ segundos=59; minutos--;}
      segundos --;
      if((segundos === 0)&&(minutos===0)){
@@ -168,25 +171,33 @@ Game.prototype.reloj = function(){
            if(best<point){
              best=point;
              self.drawBest(best);
-             self.showPopup('NEW RECORD');
+             msj='NEW RECORD';
           }else{
-             self.showPopup('WINNER');
+             msj='WINNER';
           }
          }
          else{
-            self.showPopup('Game Over');
-            self.showPopup('Game Over');
+            msj='GAME OVER';
          }
+
+      self.showPopup(msj);
+
      }else{
         if(lives==0){
            clearInterval(idInterbalReloj);
            clearInterval(idInterbalGame);
-           self.showPopup('Game Over');
+           self.showPopup('GAME OVER');
         }
      }
 
      var string = "";
-     string += minutos + ':'+ segundos;
+     var decimalS = "";
+     var decimalM = "";
+     if(segundos<10) decimalS = "0";
+     if(minutos<10) decimalM = "0";
+
+
+     string += decimalM+minutos + ':'+ decimalS +''+ segundos;
      document.getElementById("time").innerHTML = string;
  }, 1000);
 

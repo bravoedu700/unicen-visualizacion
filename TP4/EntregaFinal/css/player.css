@@ -8,24 +8,24 @@
 }
 
 .runner-stop{
-  background:transparent url("../image/esperar.png");
+  background:url("../image/esperar.png");
   animation: RUNNER-STOP .8s steps(8, end) infinite;
 }
 
 .runner{
-  background:transparent url("../image/correr.png");
+  background:url("../image/correr.png");
   animation: RUNNER .8s steps(6 , end) infinite;
 }
 
 .runner-jump{
-  background:transparent url("../image/saltar.png");
+  background:url("../image/saltar.png");
   animation: RUNNER-JUMP .8s steps(8);
 }
 
 .runner-die{
   width: 128px;
   height: 128px;
-  background:transparent url("../image/morir.png");
+  background:url("../image/morir.png");
   animation: RUNNER-DIE .8s steps(9);
   animation-fill-mode:forwards;
   animation-iteration-count: 1;
@@ -33,7 +33,7 @@
 }
 
 .runner-hurts{
-   background:transparent url("../image/morir.png");
+   background:url("../image/morir.png");
    animation: RUNNER-HURTS .8s steps(6);
 }
 
