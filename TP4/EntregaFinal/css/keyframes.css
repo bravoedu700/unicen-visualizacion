@@ -23,7 +23,7 @@
 
 @keyframes RUNNER-DIE{
   from {background-position: 0px;}
-  to {background-position: 1067px;}
+  to {background-position: -948px;}
 }
 
 @keyframes RUNNER-HURTS{

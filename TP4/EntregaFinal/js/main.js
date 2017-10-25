@@ -6,6 +6,7 @@ function jugarNew(min,time,speed){
    minutos=min;
    segundos=time;
    juego.hidePopup();
+   juego.restart();
    juego.jugar(5);
 }
 

@@ -88,6 +88,7 @@ Game.prototype.update = function(){
 }
 
 Game.prototype.restart = function(){
+   player.stop();
    point=0;
    self.drawPoint(0);
    this.enemigos = [];
@@ -228,7 +229,6 @@ Game.prototype.showPopup = function(msj){
    ArrowUp = false;
    ArrowDown = false;
    this.backgroundStop();
-   this.restart();
    document.getElementById('popUp').style.display = 'block';
    document.getElementById('msjPopup').innerHTML = msj;
 }

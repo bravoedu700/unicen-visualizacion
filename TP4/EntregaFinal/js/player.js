@@ -26,12 +26,14 @@ Player.prototype.getEstado = function(){
 
 
 Player.prototype.stop = function(){
+  console.log('llego');
   this.estado = 'stop';
   this.player.className = "runner-stop";
-  /* animation end y animation start */
+  /* animation end y animation start
   this.player.addEventListener('webkitAnimationEnd',() => {
       this.stop();
   })
+  */
 }
 
 Player.prototype.jump = function(){
@@ -44,6 +46,7 @@ Player.prototype.jump = function(){
      else if(ArrowUp == true)
          this.jump();
      else
+        if(this.getEstado()!='die')
          this.stop();
   });
 

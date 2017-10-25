@@ -1,35 +1,39 @@
 #runner {
-   width: 63px;
    height: 128px;
    position: absolute;
-   top: 483px;
+
    left: 150px;
    /*border: 1px solid;*/
 }
 
 .runner-stop{
+  top: 483px;
+  width: 63px;
   background:url("../image/esperar.png");
   animation: RUNNER-STOP .8s steps(8, end) infinite;
 }
 
 .runner{
+  top: 483px;
+  width: 63px;
   background:url("../image/correr.png");
   animation: RUNNER .8s steps(6 , end) infinite;
 }
 
 .runner-jump{
+  top: 483px;
+  width: 63px;
   background:url("../image/saltar.png");
   animation: RUNNER-JUMP .8s steps(8);
 }
 
 .runner-die{
-  width: 128px;
+  top: 478px;
+  width: 135px;
   height: 128px;
   background:url("../image/morir.png");
-  animation: RUNNER-DIE .8s steps(8);
-  animation-fill-mode:forwards;
-  animation-iteration-count: 1;
-  animation-timing-function:steps(9);
+  animation: RUNNER-DIE .8s steps(8) forwards;
+
 }
 
 .runner-hurts{
