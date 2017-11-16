@@ -1,0 +1,70 @@
+.grid {
+  line-height: 0;
+  width: 100%;
+}
+
+.grid .item{
+   border: 2px #FFF solid;
+   border-radius: 2px;
+   position: relative;
+   margin: 5px;
+   display: grid;
+   position: relative;
+   width: 19%;
+   float: left;
+   animation: newGrid .8s ease-in;
+}
+
+.grid .item img {
+  width: 100% !important;
+  height: 200px !important;
+  cursor: pointer;
+}
+
+.item div {
+   display: block;
+   background-color: #fff;
+   font-size: 24px;
+   height: 40px;
+   text-align:center;
+   padding: 5px;
+   transform: scale(1);
+   transition: transform .3s ease;
+}
+
+.item:hover { overflow: hidden;  }
+.item img:hover{ transform: scale(1.9) rotate(-15deg); }
+
+.item div i{
+   cursor: pointer;
+   z-index: 1000;
+   position: static;
+}
+
+.item div i:hover{
+   transform: scale(2.9);
+   animation: rota .4s ease-in;
+   margin-bottom: 10px;
+}
+
+.item:hover div { top: 80px;}
+.active{ background-color: #FFFFFF;}
+.input-group-addon{ cursor: pointer;}
+
+
+.grid2 {
+  line-height: 0;
+  width: 100%;
+}
+
+.grid2 .item{
+   display: grid;
+   position: relative;
+   width: 32%;
+   animation: gridLeft .8s ease-in;
+}
+
+.grid2 .item img {
+  width: 100% !important;
+  height: 250px !important;
+ }

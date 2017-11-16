@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa|Handlee');
+body{
+    background-image: url("../img/background.jpg");
+    background-size:100% auto;
+}
+.navbar{background-color: #000000; color:#FFFFFF}
+.navbar a{ color:#FFFFFF; font-family: 'Montserrat Alternates', sans-serif;}
+.navbar i{ color: #FFF; font-size: 28px;}
+
+h1,h2,h3,h4{color: #000000  }
+
+
+.searchbox {width: 50% !important; top:250px; left:25%; position: relative;}
+.searchbox .search:focus{ outline: 0; }
+.searchbox span{ font-size: 38px; opacity: 0.5;}
+.searchbox input{ font-size: 38px; }
+
+
+.search{
+  font-size: 40px;
+  border: none;
+  background: rgba(255, 255, 255, 0.6);
+  height: 71px;
+  padding: 10px;
+  width: 100%;
+  font-size: 26px;
+  font-family: "Roboto Slab",serif;
+}
+
+#imagenes{
+   width: 100%;
+   padding: 10px;
+   position: absolute;
+   padding: 2rem;
+  @media screen and (min-width: 768px) { padding: 4rem; }
+  @supports(display: grid) { display: block;  }
+}
+
+#loading{
+    margin: 200px auto;
+    position:relative;
+    width:60px;
+    height:60px;
+    color: #FFF;
+    border-radius:80px;
+    font-size: 40px;
+    padding-left: 13px;
+}
+
+#loading:after{
+    position:absolute;
+    width:80px;
+    height:80px;
+    border-top:10px solid #9b59b6;
+    border-bottom:10px solid #9b59b6;
+    border-left:10px solid transparent;
+    border-right:10px solid transparent;
+    border-radius:80px;
+    content:'';
+    top:-10px;
+    left:-10px;
+    animation: preloader_after 1.5s infinite linear;
+}
+
+.animation-search{
+   opacity: 1;
+   top:0px; left:0%;
+   width: 99% !important;
+   animation: UP-FULL-SEARCH 1s ease-in;
+}
+
+.animation-inicio{
+   animation: UP-INICIO-SEARCH 1s ease-in;
+}
+
+.animation-hide{
+   display: none;
+   animation-name: hideEffect 1s ease-in;
+}
+
+.animation-show{
+   display: block;
+   animation-name: showEffect 1s ease-in;
+}
+
+.hidden{
+   display: none;
+}
+
+.errorMsj{
+   font-size: 45px;
+   color: red;
+   text-align: center;
+   font-family: 'Montserrat Alternates', sans-serif;
+   margin-top: 10%;
+   background: rgba(204, 204, 204, 0.5);
+}
